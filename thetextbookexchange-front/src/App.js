@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './bookLogo.png';
 import './App.css';
 import './SideBarCSS.css';
 //import React, { Component } from 'react';
@@ -14,6 +14,7 @@ import {
 const Home = () => (
   <div>
     <h2>Home</h2>
+    <p>Welcome to The Textbook Exchange</p>
   </div>
 )
 
@@ -46,6 +47,11 @@ const BasicExample = () => (
   <Router>
     <div>
       <div id="mySidenav" class="sidenav">
+        <a href="/"><img class="sideBarLogo" src={logo}/></a>
+        <center>
+          <h4 id="sideBarTitle">The Textbook Exchange</h4>
+        </center>
+        <hr/>
         <a href="/">Home</a>
         <a href="/account">Account</a>
         <a href="/mybooks">My Books</a>

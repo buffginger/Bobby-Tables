@@ -9,8 +9,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 11px;
   background-color: black;
 }
 
@@ -23,6 +22,31 @@ body {
   transition: 0.3s;
 }
 
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
 .sidenav a:hover {
   color: #f1f1f1;
+}
+
+.sideBarLogo {
+  width: 150px;
+  margin: 0px;
+  padding: 0px;
+}
+
+#sideBarTitle {
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+  color: white;
+}
+
+hr {
+  width: 225px;
 }
