@@ -11,7 +11,7 @@ body {
 }
 
 .aboutcontainer {
-	width: 640px;
+	width: auto;
 	margin-left: 30px;
-	margin-top:40px;
+	margin-top: 40px;
 }
