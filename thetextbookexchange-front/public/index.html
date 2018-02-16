@@ -21,6 +21,7 @@
         -->
         <title>The Textbook Exchange</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <div id="root"></div>
@@ -43,6 +44,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.32.0/react-bootstrap.min.js"></script>
         <script>
             var Alert = ReactBootstrap.Alert;
+        </script>
+        <script>
+          function doStuff() {
+            console.log("hi");
+            $('#settingsGearIcon').addClass('fa-spin')
+          }
         </script>
     </body>
 </html>

@@ -49,14 +49,14 @@ const BasicExample = () => (
       <div id="mySidenav" class="sidenav">
         <a href="/"><img class="sideBarLogo" src={logo}/></a>
         <center>
-          <h4 id="sideBarTitle">The Textbook Exchange</h4>
+          <h4><a href="/" id="sideBarTitle">The Textbook Exchange</a></h4>
         </center>
         <hr/>
-        <a href="/">Home</a>
-        <a href="/account">Account</a>
-        <a href="/mybooks">My Books</a>
-        <a href="/settings">Settings</a>
-        <a href="/about">About</a>
+        <a href="/"><i class="fa fa-home"></i>&#8195;Home</a>
+        <a href="/account"><i class="fa fa-user"></i>&#8195;&#8195;Account</a>
+        <a href="/mybooks"><i class="fa fa-book"></i>&#8195;My Books</a>
+        <a href="/settings"><i class="fa fa-gear"></i>&#8195;Settings</a>
+        <a href="/about"><i class="fa fa-question"></i>&#8195;&#8195;About</a>
       </div>
       <div class="mainBody App-header">
         <Route exact path="/" component={Home}/>
