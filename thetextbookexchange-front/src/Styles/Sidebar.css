@@ -14,12 +14,23 @@
     -moz-box-shadow: -3px 0 5px 0 #555;
     -webkit-box-shadow: -3px 0 5px 0 #555;
     box-shadow: -1.5px 2px 4px #555;
+    position: fixed;
 }
 
 #sideBarTitle {
     text-align: center;
 }
 
+#sideBarTitle a {
+    color: black;
+    text-decoration: none;
+}
+
 #sideBarItemContainer {
     padding: 10px;
+}
+
+.fa {
+   width: 12px;
+   margin-right: 10px;
 }

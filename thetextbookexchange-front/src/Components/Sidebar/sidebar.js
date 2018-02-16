@@ -7,22 +7,22 @@ class Sidebar extends React.Component {
         return (
             <div className="sidenav">
                 <a href="/"><img className="px-5 img-fluid" src={logo} alt="TextbookExchange Logo"/></a>
-                <h4 id="sideBarTitle">The Textbook Exchange</h4>
+                <h4 id="sideBarTitle"><a href="/">The Textbook Exchange</a></h4>
                 <ul className="nav nav-pills flex-column" id="sideBarItemContainer">
                     <li className="nav-item">
-                        <a className="nav-link" href="/">Home</a>
+                        <a className="nav-link" href="/"><i class="fa fa-home"></i>Home</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/account">Account</a>
+                        <a className="nav-link" href="/account"><i class="fa fa-user testThis"></i>Account</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/mybooks">My Books</a>
+                        <a className="nav-link" href="/mybooks"><i class="fa fa-book"></i>My Books</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/settings">Settings</a>
+                        <a className="nav-link" href="/settings"><i class="fa fa-gear"></i>Settings</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/about">About</a>
+                        <a className="nav-link" href="/about"><i class="fa fa-question"></i>About</a>
                     </li>
                 </ul>
             </div>
