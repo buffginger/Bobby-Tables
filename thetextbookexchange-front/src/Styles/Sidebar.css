@@ -1,7 +1,11 @@
+.sidenavWrapper {
+    display: flex;
+}
+
 .sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
+    height: 100vh;
+    min-width: 240px;
+    max-width: 15%;
     z-index: 1;
     top: 0;
     left: 0;
