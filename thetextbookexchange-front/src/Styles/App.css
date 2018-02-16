@@ -2,6 +2,16 @@ body {
     background-color: #fafafa;
 }
 
+.jumbotron {
+	background-color: #fafafa;
+}
+
 .centerText {
     text-align: center;
+}
+
+.aboutcontainer {
+	width: 640px;
+	margin-left: 30px;
+	margin-top:40px;
 }
