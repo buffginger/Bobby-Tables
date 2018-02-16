@@ -9,12 +9,15 @@ class Home extends React.Component {
             <div>
                 <div className="container-fluid sidenavWrapper p-0">
                     <Sidebar/>
-                    <div className="jumbotron jumbotron-fluid">
-                        <div className="container">
-                            <h1 className="display-1">Homepage</h1>
-                            <p className="lead">This is the new layout for our pages. Please follow project structure
-                                conventions. If you have any questions let me know. Edit me in
-                                src/Components/Home/home.js</p>
+                    <div className="maincontent-container">
+                        <div className="jumbotron jumbotron-fluid">
+                            <div className="container">
+                                <h1 className="display-1">Homepage</h1>
+                                <p className="lead">This is the new layout for our pages. Please follow project
+                                    structure
+                                    conventions. If you have any questions let me know. Edit me in
+                                    src/Components/Home/home.js</p>
+                            </div>
                         </div>
                     </div>
                 </div>

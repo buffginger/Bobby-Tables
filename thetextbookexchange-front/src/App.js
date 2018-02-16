@@ -17,7 +17,7 @@ import About from './Components/About/about'
 // Loads other components/routes on top.
 const AppMain = () => (
     <Router>
-        <div id='mainDiv'>
+        <div>
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>

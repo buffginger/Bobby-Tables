@@ -3,19 +3,17 @@ body {
 }
 
 .jumbotron {
-	background-color: #fafafa;
+    background-color: #fafafa;
 }
 
 .centerText {
     text-align: center;
 }
 
-.aboutcontainer {
-	width: auto;
-	margin-left: 30px;
-	margin-top: 40px;
-}
-
-#mainDiv {
-	margin-left: 250px;
+.maincontent-container {
+    width: auto;
+    max-height: 100vh;
+    margin-left: 32px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

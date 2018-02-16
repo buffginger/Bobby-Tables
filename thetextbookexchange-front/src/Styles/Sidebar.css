@@ -1,20 +1,24 @@
 .sidenavWrapper {
+    display: -webkit-flex; /* Safari */
     display: flex;
+    height: 100vh;
 }
 
 .sidenav {
-    height: 100vh;
     min-width: 240px;
     max-width: 15%;
-    z-index: 1;
-    top: 0;
-    left: 0;
     padding-top: 12px;
     background-color: white;
-    -moz-box-shadow: -3px 0 5px 0 #555;
-    -webkit-box-shadow: -3px 0 5px 0 #555;
-    box-shadow: -1.5px 2px 4px #555;
-    position: fixed;
+    -moz-box-shadow: -3px 0 5px 0 #555555;
+    -webkit-box-shadow: -3px 0 5px 0 #555555;
+    box-shadow: -1.5px 2px 4px #555555;
+    top: 0;
+    left: 0;
+    max-height: 100vh;
+    box-sizing: border-box;
+    z-index: 3;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 #sideBarTitle {
@@ -31,6 +35,6 @@
 }
 
 .fa {
-   width: 12px;
-   margin-right: 10px;
+    width: 12px;
+    margin-right: 10px;
 }
