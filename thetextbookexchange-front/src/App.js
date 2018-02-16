@@ -1,41 +1,29 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-//import React, { Component } from 'react';
-//import {Router, Route} from 'react-router';
-import { render } from 'react-dom';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+/* *********************** GLOBAL IMPORTS *********************** */
+import React from 'react';
+import './Styles/App.css'; // Global CSS file (not bootstrap related).
+import './Styles/Sidebar.css'; // Global CSS file (not bootstrap related).
+// eslint-disable-next-line
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom' // Adds routing functions to App.
+/* *********************** END GLOBAL IMPORTS *********************** */
 
-const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
+/* *********************** COMPONENTS *********************** */
+import NotFound from './Components/NotFound/notfound'
+import Home from './Components/Home/home'
+import About from './Components/About/about'
+/* *********************** END COMPONENTS *********************** */
+
+/* *********************** MAIN EXPORT *********************** */
+// Main (global) layout that client sees when requesting index (loads public/index.html).
+// Loads other components/routes on top.
+const AppMain = () => (
+    <Router>
+        <div>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route path="/about" component={About}/>
+                <Route component={NotFound}/>
+            </Switch>
+        </div>
+    </Router>
 )
-
-const About = () => (
-  <div>
-    <h2>About</h2>
-    <p>this is a rather boring page</p>
-  </div>
-)
-
-const BasicExample = () => (
-  <Router>
-    <div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-      </ul>
-
-      <hr/>
-
-      <Route exact path="/" component={Home}/>
-      <Route path="/about" component={About}/>
-    </div>
-  </Router>
-)
-export default BasicExample
+export default AppMain

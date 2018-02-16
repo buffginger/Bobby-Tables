@@ -1,0 +1,21 @@
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 12px;
+    background-color: white;
+    -moz-box-shadow: -3px 0 5px 0 #555;
+    -webkit-box-shadow: -3px 0 5px 0 #555;
+    box-shadow: -1.5px 2px 4px #555;
+}
+
+#sideBarTitle {
+    text-align: center;
+}
+
+#sideBarItemContainer {
+    padding: 10px;
+}
