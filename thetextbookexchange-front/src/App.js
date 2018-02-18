@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom' //
 import NotFound from './Components/NotFound/notfound'
 import Home from './Components/Home/home'
 import About from './Components/About/about'
+import Settings from './Components/Settings/settings'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -21,6 +22,7 @@ const AppMain = () => (
             <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
+                <Route path="/user_settings" component={Settings}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>
