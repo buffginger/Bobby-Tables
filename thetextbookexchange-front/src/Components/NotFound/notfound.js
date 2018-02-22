@@ -11,7 +11,7 @@ class NotFound extends React.Component {
         return (
             <div>
                 <div className="container-fluid">
-                    <div className="maincontent-container">
+                    <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
                             <div className="container">
                                 <h1 className="display-1">404 Not Found</h1>
@@ -26,6 +26,9 @@ class NotFound extends React.Component {
                                     <button type="button" className="btn btn-outline-secondary btn-lg">Go Home<br/><i
                                         className="fa fa-home"></i></button>
                                 </a>
+                                <br/>
+                                <br/>
+                                <br/>
                             </div>
                         </div>
                     </div>

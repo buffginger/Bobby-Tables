@@ -9,7 +9,7 @@ class Home extends React.Component {
             <div>
                 <div className="container-fluid sidenavWrapper p-0">
                     <Sidebar/>
-                    <div className="maincontent-container">
+                    <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
                             <div className="container">
                                 <h1 className="display-1">Homepage</h1>
