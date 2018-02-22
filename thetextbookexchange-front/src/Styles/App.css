@@ -37,4 +37,8 @@ body {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    }
+}
+
+#bodyDiv {
+    margin-left: 250px;
+}
