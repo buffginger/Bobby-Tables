@@ -23,37 +23,87 @@ class SellBook extends React.Component {
                                             Actions
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">Action</a>
-                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Clear All</a>
                                             <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <a class="dropdown-item" href="#">Cancel</a>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
                         </nav>
                         <div class="card">
-                            <h5 class="card-header">Book Information</h5>
+                            <h5 class="card-header">Item Description</h5>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div class="form-group">
+                                    <label for="description">Let potential buyers know what textbook you are selling and anything they should know about it.</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
-                            <h5 class="card-header">Pricing</h5>
+                            <h5 class="card-header">Item Details</h5>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div class="form-group">
+                                    <label for="isbn10">ISBN-10</label>
+                                    <input type="text" class="form-control" id="isbn10" aria-describedby="ISBN10" placeholder="#"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="isbn13">ISBN-13</label>
+                                    <input type="text" class="form-control" id="isbn13" aria-describedby="ISBN13" placeholder="#"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="publisher">Publisher</label>
+                                    <input type="text" class="form-control" id="publisher" aria-describedby="Book Publisher" placeholder="Name"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="author">Author(s)</label>
+                                    <input type="text" class="form-control" id="author" aria-describedby="Book Author" placeholder="Name(s)"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="edition">Edition</label>
+                                    <input type="text" class="form-control" id="edition" aria-describedby="Book Edition" placeholder="#"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="copyright">Copyright Year</label>
+                                    <input type="text" class="form-control" id="copyright" aria-describedby="Book Copyright Year" placeholder="ex. 2018"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="spinetype">Spine Type</label>
+                                    <input type="text" class="form-control" id="spinetype" aria-describedby="Spine Type" placeholder="ex. Hardcover or Paperback"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pages">Approximate Pages</label>
+                                    <input type="text" class="form-control" id="pages" aria-describedby="Approximate Book Pages" placeholder="#"/>
+                                </div>
                             </div>
                         </div>
                         <div class="card">
-                            <h5 class="card-header">Location</h5>
+                            <h5 class="card-header">Item Condition</h5>
                             <div class="card-body">
-                                <h5 class="card-title">Special title treatment</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Let everyone know what shape your book is in.</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                        <option>New</option>
+                                        <option>Mint / Like New</option>
+                                        <option>Very Good</option>
+                                        <option>Good</option>
+                                        <option>Acceptable</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <h5 class="card-header">Price</h5>
+                            <div class="card-body">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="negotiable"/>
+                                    <label class="form-check-label" for="negotiable">Negotiable</label>
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <label for="price">Sell Price</label>
+                                    <input type="text" class="form-control" id="price" aria-describedby="Sell Price" placeholder="$"/>
+                                </div>
                             </div>
                         </div>
                     </div>
