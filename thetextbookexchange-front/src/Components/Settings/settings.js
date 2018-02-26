@@ -16,15 +16,15 @@ class Settings extends React.Component {
             <div>
                 <div className="container-fluid sidenavWrapper p-0">
                     <Sidebar/>
-                    <div className="maincontent-container">
+                    <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
                             <div className="container">
                                 <h1 className="display-1">User Settings</h1>
                                 <p className="lead" style={{"padding-left": 15}}> Double Check All Changes Before
-                                    Continuing</p>
+                                    Continuing
                                 <hr/>
 
-                                <div style={{"padding-left": 15}}>
+                                <div>
                                     <form action="/user_setting_change.js">
                                         <div class="form-group">
                                             <b><label for="changeNumber">Change Number</label></b>
@@ -71,6 +71,7 @@ class Settings extends React.Component {
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
+                                </p>
                             </div>
                         </div>
                     </div>

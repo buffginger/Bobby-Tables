@@ -9,7 +9,7 @@ class About extends React.Component {
             <div>
                 <div className="container-fluid sidenavWrapper p-0">
                     <Sidebar/>
-                    <div className="maincontent-container">
+                    <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
                             <h1 className="display-1">About Us</h1>
                             <h2>We built The Textbook Exchange to help students continue their education on a
