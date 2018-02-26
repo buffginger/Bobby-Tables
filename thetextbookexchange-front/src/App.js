@@ -11,6 +11,7 @@ import NotFound from './Components/NotFound/notfound'
 import Home from './Components/Home/home'
 import About from './Components/About/about'
 import Settings from './Components/Settings/settings'
+import SellBook from './Components/SellBook/sellbook'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -23,6 +24,7 @@ const AppMain = () => (
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
                 <Route path="/user_settings" component={Settings}/>
+                <Route path="/sell" component={SellBook}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>
