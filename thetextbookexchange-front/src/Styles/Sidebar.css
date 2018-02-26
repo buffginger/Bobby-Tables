@@ -19,7 +19,6 @@
     z-index: 3;
     overflow-x: hidden;
     overflow-y: auto;
-    position: fixed;
     height: 100vh;
 }
 
