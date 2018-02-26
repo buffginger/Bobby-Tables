@@ -106,6 +106,12 @@ class SellBook extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <div class="card">
+                            <h5 class="card-header">Submit</h5>
+                            <div class="card-body">
+                                <button type="button" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
