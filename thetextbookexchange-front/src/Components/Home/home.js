@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+
+import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
 
 // Homepage component/module.
 class Home extends React.Component {
+
+    state = {
+        persons: []
+    }
+
+    componentDidMount() {
+        axios.get(`https://jsonplaceholder.typicode.com/users`)
+        .then(res => {
+            const persons = res.data;
+            this.setState({ persons });
+        })
+    }
+
     render() {
         return (
             <div>
@@ -39,24 +54,23 @@ class Home extends React.Component {
                                     <hr/>
                                     
                                     <br/>
-                                    <div class="card">
-                                        <div class="card-header"><b>Post</b> #1213411 | <b>Date Posted:</b> 02/21/2018 | <b>Price Negotiable:</b> No</div>
-                                        <div class="card-body">
-                                            <h5 class="card-title">Tumbeasts - Special Edition | $5</h5>
-                                            <p class="card-text" maxlength="10">
-                                                    <div class="limitText">
-                                                    Hello All! I am selling the tumbeasts book - as the title specifies. The tumbeasts within vary in emotions and mental stability. They are collected from all over the internet and therefore are very unique and also compounded into a special edition, just for you! The book is 5$. What a bargain.
-                                                    </div>
-                                            </p>
-                                            <a href="./samplebook" class="btn btn-primary">Check it out!</a>
-                                        </div>
-                                    </div> 
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
+                                    <div maxlength="5">
+                                        { this.state.persons.map(person => 
+                                            <div class="card">
+                                                <div class="card-header"><b>Post </b>{person.id}</div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{person.name}</h5>
+                                                    <p class="card-text" maxlength="10">
+                                                        <div class="limitText">
+                                                            {person.company.catchPhrase}
+                                                        </div>
+                                                    </p>
+                                                    <a href="./samplebook" class="btn btn-primary">Check it out!</a>
+                                                </div>
+                                                <br/>
+                                            </div>
+                                        )}
+                                    </div>
                                 </p>
                             </div>
                         </div>
