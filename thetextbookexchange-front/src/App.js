@@ -12,6 +12,8 @@ import Home from './Components/Home/home'
 import About from './Components/About/about'
 import Settings from './Components/Settings/settings'
 import SellBook from './Components/SellBook/sellbook'
+import Register from './Components/Auth/register'
+import Login from './Components/Auth/login'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -25,6 +27,8 @@ const AppMain = () => (
                 <Route path="/about" component={About}/>
                 <Route path="/user_settings" component={Settings}/>
                 <Route path="/sell" component={SellBook}/>
+                <Route path="/register" component={Register}/>
+                <Route path="/login" component={Login}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>
