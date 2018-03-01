@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-var baseURL = "http://localhost:8000";
-
 class Register extends Component {
 
     constructor(props){
@@ -19,7 +17,7 @@ class Register extends Component {
     onSubmit(e){
         e.preventDefault();
         const {name, email, password, password_confirmation} = this.state ;
-        axios.post(baseURL + '/api/register', {
+        axios.post('http://localhost:8000/api/register', {
             name,
             email,
             password,
