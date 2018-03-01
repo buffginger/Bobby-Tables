@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+var baseURL = "http://localhost:8000";
+
 class Register extends Component {
 
     constructor(props){
@@ -17,7 +19,7 @@ class Register extends Component {
     onSubmit(e){
         e.preventDefault();
         const {name, email, password, password_confirmation} = this.state ;
-        axios.post('api/register', {
+        axios.post(baseURL + '/api/register', {
             name,
             email,
             password,
@@ -25,7 +27,7 @@ class Register extends Component {
           })
           .then(response=> {
            this.setState({err: false});
-           this.props.history.push("home") ;
+           this.props.history.push("/") ;
           })
           .catch(error=> {
             this.refs.name.value="";
@@ -54,9 +56,9 @@ class Register extends Component {
                                 <div className="panel-heading">Register</div>
                                 <div className="panel-body">
                                     <div className="col-md-offset-2 col-md-8 col-md-offset-2">
-                                        {error != undefined && <div className={name} role="alert">{msg}</div>}
+                                        {error !== undefined && <div className={name} role="alert">{msg}</div>}
                                     </div>   
-                                    <form className="form-horizontal" role="form" method="POST" onSubmit= {this.onSubmit.bind(this)}>
+                                    <form className="form-horizontal" method="POST" onSubmit= {this.onSubmit.bind(this)}>
                                         <div className="form-group">
                                             <label for="name" className="col-md-4 control-label">Name</label>
 

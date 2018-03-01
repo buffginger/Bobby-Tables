@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+var baseURL = "http://localhost:8000/";
 
 class Login extends Component {
     
@@ -16,7 +17,7 @@ class Login extends Component {
      onSubmit(e){
         e.preventDefault();
         const {email , password} = this.state ;
-        axios.post('api/login', {
+        axios.post(baseURL + 'api/login', {
             email, 
             password
           })
