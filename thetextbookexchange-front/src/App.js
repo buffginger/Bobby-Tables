@@ -14,6 +14,7 @@ import Settings from './Components/Settings/settings'
 import SellBook from './Components/SellBook/sellbook'
 import Register from './Components/Auth/register'
 import Login from './Components/Auth/login'
+import Welcome from './Components/Welcome/welcome'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -23,6 +24,7 @@ const AppMain = () => (
     <Router>
         <div>
             <Switch>
+                <Route path="/welcome" component={Welcome}/>
                 <Route exact path="/" component={Home}/>
                 <Route path="/about" component={About}/>
                 <Route path="/user_settings" component={Settings}/>
