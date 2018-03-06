@@ -3,6 +3,9 @@ import React from 'react';
 import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
+// Top navigation bar
+import Nav from '../Navbar/navbar';
+
 
 // Homepage component/module.
 class Home extends React.Component {
@@ -22,6 +25,7 @@ class Home extends React.Component {
     render() {
         return (
             <div>
+            <Nav/>
                 <div className="container-fluid sidenavWrapper p-0">
                     <Sidebar/>
                     <div className="maincontent-container-fullwidth">
