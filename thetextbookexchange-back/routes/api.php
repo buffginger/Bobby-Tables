@@ -24,3 +24,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::post('/logout','Auth\LoginController@logout');
     Route::post('/password/email','Auth\ForgotPasswordController@sendResetLinkEmail'); 
     Route::post('/password/reset','Auth\ResetPasswordController@reset');
+
+
+    Route::get('books', 'BooksController@index');
+    Route::get('books/{book}', 'BooksController@show');
+    Route::get('/queryresults', 'BooksController@query');
+    Route::post('books', 'BooksController@store');
+    Route::put('books/{book}', 'BooksController@update');
+    Route::delete('books{book}', 'BooksController@delete');
