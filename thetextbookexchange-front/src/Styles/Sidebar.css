@@ -20,8 +20,6 @@
     overflow-x: hidden;
     overflow-y: auto;
     height: 100vh;
-    border-style: solid;
-    border-width: 0px 2px 0px 0px;
 }
 
 #sideBarTitle {
