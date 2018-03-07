@@ -19,6 +19,9 @@ class Sidebar extends React.Component {
                         <a className="nav-link" href="/mybooks"><i className="fa fa-book"></i>My Books</a>
                     </li>
                     <li className="nav-item">
+                        <a className="nav-link" href="/sell"><i className="fa fa-plus"></i>List A Book</a>
+                    </li>
+                    <li className="nav-item">
                         <a className="nav-link" href="/user_settings"><i className="fa fa-gear"></i>Settings</a>
                     </li>
                     <li className="nav-item">
