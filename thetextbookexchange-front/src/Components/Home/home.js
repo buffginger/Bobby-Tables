@@ -7,15 +7,15 @@ import Sidebar from '../Sidebar/sidebar';
 class Home extends React.Component {
 
     state = {
-        persons: []
+        books: []
     }
 
     componentDidMount() {
-        axios.get(`https://jsonplaceholder.typicode.com/users`)
-            .then(res => {
-                const persons = res.data;
-                this.setState({persons});
-            })
+        axios.get(`http://localhost:8000/api/books`)
+        .then(res => {
+            const books = res.data;
+            this.setState({ books });
+        })
     }
 
     render() {
@@ -53,25 +53,33 @@ class Home extends React.Component {
                                     </div>
                                 </form>
                             </div>
-                            <span maxLength="5">
-                                    {
-                                        this.state.persons.map(person =>
-                                            <div className="card" key={person.toString() + Math.random()}>
-                                                <span className="card-header"><b>Post </b>{person.id}</span>
-                                                <div className="card-body">
-                                                    <h5 className="card-title">{person.name}</h5>
-                                                    <p className="card-text" maxLength="10">
-                                                <span className="limitText">
-                                                    {person.company.catchPhrase}
-                                                </span>
-                                                    </p>
-                                                    <a href="./samplebook" className="btn btn-primary">Check it
-                                                        out!</a>
+                            <div class="container-minimal">
+                                { this.state.books.map(book => 
+                                    <div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h2><b>Title: {book.title}</b></h2>
+                                                <div class="bookInfo">
+                                                    <h6 class="card-title noLnBrk">Author: {book.author}</h6>
+                                                    <h6 class="card-title noLnBrk">ISBN: {book.isbn}</h6>
+                                                    <br/>
+                                                    <h6 class="card-title noLnBrk">Edition: {book.edition}</h6>
+                                                    <h6 class="card-title noLnBrk">Subject: {book.subject}</h6>
+                                                    <br/><br/>
+                                                    <a href="./samplebook/" class="btn btn-primary">Check it out!</a>
                                                 </div>
-                                                <br/>
+                                                <div class="bookImg">
+                                                    <img src={book.image} alt="Book Image" width="120" height="135"/>
+                                                </div>
                                             </div>
-                                        )}
-                            </span>
+                                            <br/>
+                                        </div>
+                                        <div>
+                                            <br/>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

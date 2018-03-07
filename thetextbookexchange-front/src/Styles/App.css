@@ -43,31 +43,39 @@ body {
     margin-left: 250px;
 }
 
-.container-minimal {
-    margin-left: 8px;
-    margin-right: 8px;
+.noLnBrk {
+    display: inline-block;
+    width: 350px;
+    padding-left: 2em;
 }
 
 .card {
     border-style: solid;
     border-width: 5px;
 }
+
 .bookInfo {
     display: inline-block;
     width: 80%;
     vertical-align: top;
 }
+
 .bookImg {
     display: inline-block;;
     width: 20%;
     vertical-align: top;
 }
 
+.container-minimal {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .lib {
     opacity: 0.5;
     background-size: cover;
-
 }
+
 .jumbotron-minimalpadding {
     padding-top: 12px;
 }
