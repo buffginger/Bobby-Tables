@@ -45,23 +45,16 @@ class Welcome extends Component {
         </nav>
         )
     }
+    
     // If the user is not logged in
     return (
-         <div class="lib w3-display-container w3-opacity-min" id="home">
-         <img src={library} alt="Library wallpaper"/>
-            <div class="w3-display-middle">
-              <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity"><span class="w3-hide-small"></span> LOGO</span>
+        <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+            <div class="w3-display-middle wsNoWrp lgnReg">
+              <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity lgnReg"><a href="/login">LOGIN</a></span>
+              <br/><br/>
+              <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity lgnReg"><a href="/register">REGISTER</a></span>
             </div>
         </div>
-
-/*
-              <ul>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/register">Register</Link></li>
-              </ul>
-          </div>
-        </div>
-      */
     )
   }
 

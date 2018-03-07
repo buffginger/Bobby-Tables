@@ -79,3 +79,27 @@ body {
 .jumbotron-minimalpadding {
     padding-top: 12px;
 }
+
+.wlcmImg {
+    width: 100vw;
+    height: 100vh;
+}
+
+.wsNoWrp {
+    white-space:nowrap;
+}
+
+.bgimg-1 {
+    background-image: url('../Assets/Images/library.jpg');
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.lgnReg {
+    display: block;
+    width: 300px;
+    text-align: center;
+}
