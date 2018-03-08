@@ -2,19 +2,104 @@ import React from 'react';
 import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
+import TableRow from '../TableRow/tablerow';
 
 // Homepage component/module.
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {keyboardInput: '',
+                      selection: 'title',
+                      books: ''};
+    
+        this.handleChange1 = this.handleChange1.bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this); // this right now just shows what was entered
+      }
+    
+      handleChange1(event) {
+        this.setState({keyboardInput: event.target.value}); // this must remain to be value
+      }
 
-    state = {
-        books: []
+      handleChange2(event) {
+        this.setState({selection: event.target.value}); // this must remain to be value
+      }
+    
+      handleSubmit(event) {
+        alert('A name was submitted: ' + this.state.keyboardInput + '\n' +
+        'A selection type was made: ' + this.state.selection);
+        event.preventDefault();
+
+        let testURL = 'https://api.thetextbookexchange.club/api/books';
+            //let testURL = 'http://localhost:3030';
+          
+            if(this.state.selection === 'title'){
+                axios.get(testURL, {
+                    params: {
+                        title: this.state.keyboardInput
+                    }
+                })
+                .then(response => {
+                    this.setState({ books: response.data });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            else if(this.state.selection === 'author'){
+                axios.get(testURL, {
+                    params: {
+                        author: this.state.keyboardInput
+                    }
+                })
+                .then(response => {
+                    this.setState({ books: response.data });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            else if(this.state.selection === 'isbn'){
+                axios.get(testURL, {
+                    params: {
+                        isbn: this.state.keyboardInput
+                    }
+                })
+                .then(response => {
+                    this.setState({ books: response.data });
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            event.preventDefault();
+    }
+    tabRow(){
+        // this.state.data.books is what it used to be
+        if(this.state.books instanceof Array){
+          return this.state.books.map(function(object, i){
+              return <TableRow obj={object} key={i} />;
+          })
+        }
+      }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    state1 = {
+        books1: []
     }
 
     componentDidMount() {
         axios.get(`https://api.thetextbookexchange.club/api/books`)
         .then(res => {
-            const books = res.data;
-            this.setState({ books });
+            const books1 = res.data;
+            this.setState({ books1 });
         })
     }
 
@@ -39,35 +124,30 @@ class Home extends React.Component {
                     <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid jumbotron-minimalpadding">
                             <div className="container-minimal">
-                                <form action="/searchResults.js">
-                                    <div className="input-group input-group-lg mb-3">
-                                        <input type="text" className="form-control" name="form-control"
-                                               id="databaseQuery"
-                                               placeholder="Search - ISBN, Author, Publisher & More!"/>
-
-                                        <div className="input-group-append">
-                                            <button className="btn btn-outline-secondary dropdown-toggle"
-                                                    type="button" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false">Select Search Type
-                                            </button>
-                                            <div className="dropdown-menu">
-                                                <a selected className="dropdown-item" href="#">All</a>
-                                                <a className="dropdown-item" href="#">Author</a>
-                                                <a className="dropdown-item" href="#">ISBN-10</a>
-                                                <a className="dropdown-item" href="#">ISBN-13</a>
-                                                <a className="dropdown-item" href="#">Title</a>
-                                                <a className="dropdown-item" href="#">Publisher</a>
+                            <form onSubmit={this.handleSubmit}>
+                                    <div className="input-group input-group-lg mb-3"> 
+                                            <input type="text" className="form-control" name="form-control"
+                                               id="databaseQuery" value={this.state.keyboardInput} placeholder="Search - ISBN, Author, & Title!"
+                                             onChange={this.handleChange1}/>
+                                            <div class="input-group-append">
+                                                <select value={this.state.selection} onChange={this.handleChange2}>
+                                                    <option value="title">Title</option>
+                                                    <option value="author">Author</option>
+                                                    <option value="isbn">ISBN</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
                                             </div>
                                         </div>
-                                        <div className="input-group-append">
-                                                <span className="input-group-text"><button type="submit"
-                                                                                           className="btn btn-primary">Submit</button></span>
-                                        </div>
-                                    </div>
                                 </form>
+
+
+
+
                             </div>
                             <div class="container-minimal">
-                                { this.state.books.map(book => 
+                                { this.state1.books1.map(book => 
                                     <div>
                                         <div class="card" id={book.id}>
                                             <div class="card-body">

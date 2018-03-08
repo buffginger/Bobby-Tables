@@ -15,6 +15,7 @@ import SellBook from './Components/SellBook/sellbook'
 import Register from './Components/Auth/register'
 import Login from './Components/Auth/login'
 import Welcome from './Components/Welcome/welcome'
+import TableRow from './Components/TableRow/tablerow'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -31,6 +32,7 @@ const AppMain = () => (
                 <Route path="/sell" component={SellBook}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/tablerow" component={TableRow}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>
