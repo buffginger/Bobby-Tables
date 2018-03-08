@@ -11,7 +11,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8000/api/books`)
+        axios.get(`https://api.thetextbookexchange.club/api/books`)
         .then(res => {
             const books = res.data;
             this.setState({ books });

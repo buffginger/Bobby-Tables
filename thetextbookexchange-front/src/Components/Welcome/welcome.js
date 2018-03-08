@@ -12,8 +12,8 @@ class Welcome extends Component {
   } 
   
   logout(e){
-       e.preventDefault();  
-       axios.post('http://localhost:8000/api/logout')
+       e.preventDefault();
+       axios.post('https://api.thetextbookexchange.club/api/logout')
           .then(response=> {
             this.props.history.push('/');
           })
