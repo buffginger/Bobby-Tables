@@ -10,11 +10,15 @@ class Home extends React.Component {
         super(props);
         this.state = {keyboardInput: '',
                       selection: 'title',
-                      books: ''};
+                      searchResults: [],
+                        books: []
+                      
+                    };
     
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this); // this right now just shows what was entered
+        this.tabRow;
       }
     
       handleChange1(event) {
@@ -34,26 +38,44 @@ class Home extends React.Component {
             //let testURL = 'http://localhost:3030';
           
             if(this.state.selection === 'title'){
-                axios.get(testURL, {
+                /*axios.get('https://api.thetextbookexchange.club/api/books?id=1')
+                /*.then(res => {
+                    this.setState({ searchResults: res.data.searchResults });
+                    alert('searchResults was set with: '+ res.data.searchResults);
+                })
+                .then(function (res) {
+                    this.setState({ searchResults: res.data });
+                    alert('searchResults was set with: '+ searchResults);
+                    console.log(res);
+                  })
+                .catch(function (error) {
+                    console.log(error);
+                    alert('Error: searchResults was not set');
+                });*/
+                var self = this;
+                axios.get('https://api.thetextbookexchange.club/api/books', {
                     params: {
                         title: this.state.keyboardInput
                     }
                 })
-                .then(response => {
-                    this.setState({ books: response.data });
+                .then(res => {
+                    const searchResults = res.data;
+                    this.setState({ searchResults });
+                    alert('searchResults was set with: ' + this.state.searchResults);
                 })
                 .catch(function (error) {
-                    console.log(error);
+                console.log(error);
+                alert('there was an error');
                 });
             }
-            else if(this.state.selection === 'author'){
+            /*else if(this.state.selection === 'author'){
                 axios.get(testURL, {
                     params: {
                         author: this.state.keyboardInput
                     }
                 })
-                .then(response => {
-                    this.setState({ books: response.data });
+                .then(res => {
+                    this.setState({ searchResults: res.data.searchResults });
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -65,23 +87,23 @@ class Home extends React.Component {
                         isbn: this.state.keyboardInput
                     }
                 })
-                .then(response => {
-                    this.setState({ books: response.data });
+                .then(res => {
+                    this.setState({ searchResults: res.data.searchResults });
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
-            }
+            }*/
             event.preventDefault();
     }
     tabRow(){
-        // this.state.data.books is what it used to be
+        /// this.state.data.books is what it used to be
         if(this.state.books instanceof Array){
-          return this.state.books.map(function(object, i){
-              return <TableRow obj={object} key={i} />;
-          })
+            return this.state.books.map(function(object, i){
+                return <TableRow obj={object} key={i} />;
+            })
+          }
         }
-      }
     
     
     
@@ -91,15 +113,12 @@ class Home extends React.Component {
     
     
     
-    state1 = {
-        books1: []
-    }
 
     componentDidMount() {
         axios.get(`https://api.thetextbookexchange.club/api/books`)
         .then(res => {
-            const books1 = res.data;
-            this.setState({ books1 });
+            const books = res.data;
+            this.setState({ books });
         })
     }
 
@@ -147,7 +166,7 @@ class Home extends React.Component {
 
                             </div>
                             <div class="container-minimal">
-                                { this.state1.books1.map(book => 
+                                { this.state.books.map(book => 
                                     <div>
                                         <div class="card" id={book.id}>
                                             <div class="card-body">
@@ -173,6 +192,8 @@ class Home extends React.Component {
                                     </div>
                                 )}
                             </div>
+
+                                                   
                         </div>
                     </div>
                 </div>
