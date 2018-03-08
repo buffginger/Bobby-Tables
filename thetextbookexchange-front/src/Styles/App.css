@@ -103,3 +103,26 @@ body {
     width: 300px;
     text-align: center;
 }
+
+#loginDiv {
+    width: 320px;
+    height: 270px;
+    margin-left: -160px;
+    margin-top: -135px;
+}
+
+#registerDiv {
+    width: 320px;
+    height: 380px;
+    margin-left: -160px;
+    margin-top: -190px;
+}
+
+.logRegDiv {
+    border-radius: 25px;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    padding: 10px;
+    background-color: black;
+}

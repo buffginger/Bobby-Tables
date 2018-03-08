@@ -18,6 +18,19 @@ class Home extends React.Component {
         })
     }
 
+    // page2 = () => {
+    //     document.getElementById('1').style.display = 'none';
+    //     document.getElementById('2').style.display = 'none';
+    //     document.getElementById('3').style.display = 'none';
+    //     document.getElementById('4').style.display = 'none';
+    //     document.getElementById('5').style.display = 'none';
+            // <div id="test1">
+            //                         <center><button onClick={this.page2}>
+            //                             Page 2
+            //                         </button></center>
+            //                     </div>
+    // }
+
     render() {
         return (
             <div>
@@ -56,7 +69,7 @@ class Home extends React.Component {
                             <div class="container-minimal">
                                 { this.state.books.map(book => 
                                     <div>
-                                        <div class="card">
+                                        <div class="card" id={book.id}>
                                             <div class="card-body">
                                                 <h2><b>Title: {book.title}</b></h2>
                                                 <div class="bookInfo">

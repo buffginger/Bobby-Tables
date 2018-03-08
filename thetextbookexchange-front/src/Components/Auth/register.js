@@ -45,66 +45,89 @@ class Register extends Component {
         let error = this.state.err ;
         let msg = (!error) ? 'Registered Successfully' : 'Oops! , Something went wrong.' ;
         let name = (!error) ? 'alert alert-success' : 'alert alert-danger' ;
-        return (   
-             <div>   
-                <div className="container">
-                    <div className="row">
-                        <div className="col-md-8 col-md-offset-2">
-                            <div className="panel panel-default">
-                                <div className="panel-heading">Register</div>
-                                <div className="panel-body">
-                                    <div className="col-md-offset-2 col-md-8 col-md-offset-2">
-                                        {error !== undefined && <div className={name} role="alert">{msg}</div>}
-                                    </div>   
-                                    <form className="form-horizontal" method="POST" onSubmit= {this.onSubmit.bind(this)}>
-                                        <div className="form-group">
-                                            <label for="name" className="col-md-4 control-label">Name</label>
-
-                                            <div className="col-md-6">
-                                                <input id="name" type="text" className="form-control" ref="name" name="name" onChange={this.onChange.bind(this)} required autofocus />
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label for="email" className="col-md-4 control-label">E-Mail Address</label>
-
-                                            <div className="col-md-6">
-                                                <input id="email" type="email" className="form-control" ref="email" name="email" onChange={this.onChange.bind(this)} required />
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label for="password" className="col-md-4 control-label">Password</label>
-
-                                            <div className="col-md-6">
-                                                <input id="password" type="password" className="form-control"  ref="password" name="password" onChange={this.onChange.bind(this)} required/>
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <label for="password-confirm" className="col-md-4 control-label">Confirm Password</label>
-
-                                            <div className="col-md-6">
-                                                <input id="password-confirm" type="password" className="form-control" ref="confirm" name="password_confirmation" onChange={this.onChange.bind(this)} required/>
-                                            </div>
-                                        </div>
-
-                                        <div className="form-group">
-                                            <div className="col-md-6 col-md-offset-4">
-                                                <button type="submit" className="btn btn-primary">
-                                                    Register
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
+        return (  
+            <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+                <div id="registerDiv" class="logRegDiv">
+                    <div className="col-md-offset-2 col-md-8 col-md-offset-2">
+                        {error !== undefined && <div className={name} role="alert">{msg}</div>}
+                    </div>  
+                    <form class="form-signin" method="POST" onSubmit={this.onSubmit.bind(this)}>
+                        <h2 class="form-signin-heading">Register</h2>
+                        <input type="text" id="name" ref="name" class="form-control" name="name" onChange={this.onChange.bind(this)} placeholder="Name" required="" autofocus=""/>
+                        <br/>
+                        <input type="email" id="email" ref="email" class="form-control" name="email" onChange={this.onChange.bind(this)} placeholder="Email address" required=""/>
+                        <br/>
+                        <input type="password" id="password" ref="password" class="form-control" name="password" onChange={this.onChange.bind(this)} placeholder="Password" required=""/>
+                        <br/>
+                        <input type="password" id="password-confirm" ref="confirm" class="form-control" name="password_confirmation" onChange={this.onChange.bind(this)} placeholder="Confirm Password" required=""/>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" value="remember-me"/> Remember me
+                            </label>
                         </div>
-                    </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    </form>
                 </div>
-            </div>    
-        )
-      }
+            </div>
+            // <div>   
+            //     <div className="container">
+            //         <div className="row">
+            //             <div className="col-md-8 col-md-offset-2">
+            //                 <div className="panel panel-default">
+            //                     <div className="panel-heading">Register</div>
+            //                     <div className="panel-body">
+            //                         <div className="col-md-offset-2 col-md-8 col-md-offset-2">
+            //                             {error !== undefined && <div className={name} role="alert">{msg}</div>}
+            //                         </div>   
+            //                         <form className="form-horizontal" method="POST" onSubmit= {this.onSubmit.bind(this)}>
+            //                             <div className="form-group">
+            //                                 <label for="name" className="col-md-4 control-label">Name</label>
+
+            //                                 <div className="col-md-6">
+            //                                     <input id="name" type="text" className="form-control" ref="name" name="name" onChange={this.onChange.bind(this)} required autofocus />
+            //                                 </div>
+            //                             </div>
+
+            //                             <div className="form-group">
+            //                                 <label for="email" className="col-md-4 control-label">E-Mail Address</label>
+
+            //                                 <div className="col-md-6">
+            //                                     <input id="email" type="email" className="form-control" ref="email" name="email" onChange={this.onChange.bind(this)} required />
+            //                                 </div>
+            //                             </div>
+
+            //                             <div className="form-group">
+            //                                 <label for="password" className="col-md-4 control-label">Password</label>
+
+            //                                 <div className="col-md-6">
+            //                                     <input id="password" type="password" className="form-control"  ref="password" name="password" onChange={this.onChange.bind(this)} required/>
+            //                                 </div>
+            //                             </div>
+
+            //                             <div className="form-group">
+            //                                 <label for="password-confirm" className="col-md-4 control-label">Confirm Password</label>
+
+            //                                 <div className="col-md-6">
+            //                                     <input id="password-confirm" type="password" className="form-control" ref="confirm" name="password_confirmation" onChange={this.onChange.bind(this)} required/>
+            //                                 </div>
+            //                             </div>
+
+            //                             <div className="form-group">
+            //                                 <div className="col-md-6 col-md-offset-4">
+            //                                     <button type="submit" className="btn btn-primary">
+            //                                         Register
+            //                                     </button>
+            //                                 </div>
+            //                             </div>
+            //                         </form>
+            //                     </div>
+            //                 </div>
+            //             </div>
+            //         </div>
+            //     </div>
+            // </div>    
+        );
+    }
 }
 
 export default Register
