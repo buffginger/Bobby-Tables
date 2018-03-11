@@ -10,7 +10,7 @@ class Home extends React.Component {
         super(props);
         this.state = {keyboardInput: '',
                       selection: 'title',
-                      searchResults: [],
+                      searchResults: '',
                         books: []
                       
                     };
@@ -34,34 +34,25 @@ class Home extends React.Component {
         'A selection type was made: ' + this.state.selection);
         event.preventDefault();
 
-        let testURL = 'https://api.thetextbookexchange.club/api/books';
             //let testURL = 'http://localhost:3030';
           
             if(this.state.selection === 'title'){
-                /*axios.get('https://api.thetextbookexchange.club/api/books?id=1')
-                /*.then(res => {
-                    this.setState({ searchResults: res.data.searchResults });
-                    alert('searchResults was set with: '+ res.data.searchResults);
-                })
-                .then(function (res) {
-                    this.setState({ searchResults: res.data });
-                    alert('searchResults was set with: '+ searchResults);
-                    console.log(res);
-                  })
-                .catch(function (error) {
-                    console.log(error);
-                    alert('Error: searchResults was not set');
-                });*/
                 var self = this;
-                axios.get('https://api.thetextbookexchange.club/api/books', {
+                var json;
+                axios.get('localhost:8000/api/searchtitle',{
                     params: {
-                        title: this.state.keyboardInput
+                        titleName: this.state.keyboardInput
                     }
                 })
                 .then(res => {
-                    const searchResults = res.data;
-                    this.setState({ searchResults });
-                    alert('searchResults was set with: ' + this.state.searchResults);
+                    
+                    //const searchResults = res.data;
+                    //this.setState({ searchResults });
+                   
+                    json = JSON.parse(res.data);
+                    alert(json["title"]);
+                    //alert('searchResults was set with: ' + this.state.searchResults);
+                    //console.log(this.state.searchResults);
                 })
                 .catch(function (error) {
                 console.log(error);
@@ -193,8 +184,8 @@ class Home extends React.Component {
                                 )}
                             </div>
 
-                                                   
-                        </div>
+                            {/*<p>Here is something i pulled from db: {this.state.searchResults.map(thingy => thingy.title )}</p>                                                  
+                        */}</div>
                     </div>
                 </div>
             </div>

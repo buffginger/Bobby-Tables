@@ -22,7 +22,20 @@ class BooksController extends Controller
     {
         
     }
- 
+
+    public function searchTitle(Request $request){
+        $results = DB::table('books')->where('title', 'LIKE', $request['titleName'])->get();
+        return response()->json($results, 201);
+    }
+    /*public function searchISBN(Request $request){
+        $results = DB::table('books')->where('isbn', 'LIKE', $request)->get();
+        return response()->json($results, 201);
+    }
+    public function searchAuthor(Request $request){
+        $results = DB::table('books')->where('author', 'LIKE', $request)->get();
+        return response()->json($results, 201);
+    }*/
+
     public function store(Request $request)
     {
         $book = Book::create($request->all());
