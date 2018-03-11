@@ -16,6 +16,8 @@ import Register from './Components/Auth/register'
 import Login from './Components/Auth/login'
 import Welcome from './Components/Welcome/welcome'
 import TableRow from './Components/TableRow/tablerow'
+import SampleBook from './Components/ViewBook/viewbook'
+import Account from './Components/Account/account'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -27,12 +29,14 @@ const AppMain = () => (
             <Switch>
                 <Route path="/welcome" component={Welcome}/>
                 <Route exact path="/" component={Home}/>
+                <Route path="/account" component={Account}/>
                 <Route path="/about" component={About}/>
                 <Route path="/user_settings" component={Settings}/>
                 <Route path="/sell" component={SellBook}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
                 <Route path="/tablerow" component={TableRow}/>
+                <Route path="/samplebook" component={SampleBook}/>
                 <Route component={NotFound}/>
             </Switch>
         </div>

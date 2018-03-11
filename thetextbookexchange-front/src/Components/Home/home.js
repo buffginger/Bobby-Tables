@@ -3,6 +3,7 @@ import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
 import TableRow from '../TableRow/tablerow';
+import { Link } from 'react-router-dom';
 
 // Homepage component/module.
 class Home extends React.Component {
