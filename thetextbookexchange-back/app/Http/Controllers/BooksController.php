@@ -1,9 +1,13 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller; 
 use Illuminate\Http\Request;
 use App\Book;
+use Illuminate\Support\Facades\Log;
+
  
 class BooksController extends Controller
 {
@@ -24,7 +28,18 @@ class BooksController extends Controller
     }
 
     public function searchTitle(Request $request){
-        $results = DB::table('books')->where('title', 'LIKE', $request['titleName'])->get();
+        $fullText = $request['titleName'];      // User input
+        $arr = explode(' ', $fullText);         // Split the string on \s
+        $results = [];                          // Init 
+
+        // Look for a match for each keyword ($value) 
+        foreach ($arr as $value) {
+            array_push($results, DB::table('books')
+            ->where('title', 'like', '%'.$value.'%')->get());
+        }
+
+        Log::info($results);
+
         return response()->json($results, 201);
     }
     /*public function searchISBN(Request $request){

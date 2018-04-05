@@ -40,24 +40,19 @@ class Home extends React.Component {
             if(this.state.selection === 'title'){
                 var self = this;
                 var json;
-                axios.get('localhost:8000/api/searchtitle',{
+                axios.get('http://localhost:8000/api/searchtitle',{
                     params: {
                         titleName: this.state.keyboardInput
                     }
                 })
                 .then(res => {
                     
-                    //const searchResults = res.data;
-                    //this.setState({ searchResults });
-                   
-                    json = JSON.parse(res.data);
-                    alert(json["title"]);
-                    //alert('searchResults was set with: ' + this.state.searchResults);
-                    //console.log(this.state.searchResults);
+                    //json = JSON.parse(res.data);
+                    
                 })
                 .catch(function (error) {
                 console.log(error);
-                alert('there was an error');
+                alert('error:' + error);
                 });
             }
             /*else if(this.state.selection === 'author'){
