@@ -19,13 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 */
 
-    Route::post('/login','Auth\LoginController@authenticate');  
-    Route::post('/register','Auth\RegisterController@create');  
-    Route::post('/logout','Auth\LoginController@logout');
-    Route::post('/password/email','Auth\ForgotPasswordController@sendResetLinkEmail'); 
-    Route::post('/password/reset','Auth\ResetPasswordController@reset');
+Route::post('/login', 'AuthController@login');
+Route::post('/register', 'Auth\RegisterController@create');
+Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
+Route::post('/logout', 'AuthController@logout');
 
-
+/* These routes are protected by authentication. */
+Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('books', 'BooksController@index');
     Route::get('books/{book}', 'BooksController@show');
     Route::get('/queryresults', 'BooksController@query');
@@ -33,5 +34,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::put('books/{book}', 'BooksController@update');
     Route::delete('books{book}', 'BooksController@delete');
 
-
     Route::get('/searchtitle', 'BooksController@searchTitle');
+});
