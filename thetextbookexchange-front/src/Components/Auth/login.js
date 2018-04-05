@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 class Login extends Component {
     
@@ -14,15 +15,16 @@ class Login extends Component {
 
      onSubmit(e){
         e.preventDefault();
-        const {email , password} = this.state ;
+        const {email , password} = this.state;
+        const cookies = new Cookies();
         axios.post('http://localhost:8000/api/login', {
             email, 
             password
           })
           .then(response=> {
             this.setState({err: false});
-            this.props.history.push("/") ;
-            
+            cookies.set('TBEAuthToken', response.data.access_token, { path: '/' }); // Store auth token into a cookie.
+            this.props.history.push("/home");
           })
           .catch(error=> {
             this.refs.email.value="";

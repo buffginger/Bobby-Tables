@@ -27,8 +27,8 @@ const AppMain = () => (
     <Router>
         <div>
             <Switch>
-                <Route path="/welcome" component={Welcome}/>
-                <Route exact path="/" component={Home}/>
+                <Route path="/home" component={Home}/>
+                <Route exact path="/" component={Welcome}/>
                 <Route path="/account" component={Account}/>
                 <Route path="/about" component={About}/>
                 <Route path="/user_settings" component={Settings}/>

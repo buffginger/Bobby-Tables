@@ -10,6 +10,10 @@ body {
     text-align: center;
 }
 
+.whiteText {
+    color: #FAFAFA;
+}
+
 .maincontent-container {
     width: auto;
     max-height: 100vh;

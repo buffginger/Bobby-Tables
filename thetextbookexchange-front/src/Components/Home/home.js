@@ -131,9 +131,9 @@ class Home extends React.Component {
                         <div className="jumbotron jumbotron-fluid jumbotron-minimalpadding">
                             <div className="container-minimal">
                             <form onSubmit={this.handleSubmit}>
-                                    <div className="input-group input-group-lg mb-3"> 
+                                    <div className="input-group input-group-lg mb-3">
                                             <input type="text" className="form-control" name="form-control"
-                                               id="databaseQuery" value={this.state.keyboardInput} placeholder="Search - ISBN, Author, & Title!"
+                                               id="databaseQuery" value={this.state.keyboardInput} placeholder="Search - ISBN, Author, & Title"
                                              onChange={this.handleChange1}/>
                                             <div class="input-group-append">
                                                 <select value={this.state.selection} onChange={this.handleChange2}>
