@@ -4,6 +4,7 @@ import axios from 'axios';
 import Sidebar from '../Sidebar/sidebar';
 import TableRow from '../TableRow/tablerow';
 import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 // Homepage component/module.
 class Home extends React.Component {
@@ -31,6 +32,8 @@ class Home extends React.Component {
       }
     
       handleSubmit(event) {
+        const cookies = new Cookies();
+
         alert('A name was submitted: ' + this.state.keyboardInput + '\n' +
         'A selection type was made: ' + this.state.selection);
         event.preventDefault();
@@ -40,7 +43,10 @@ class Home extends React.Component {
             if(this.state.selection === 'title'){
                 var self = this;
                 var json;
-                axios.get('http://localhost:8000/api/searchtitle',{
+                axios.get('http://localhost:8000/api/searchtitle', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    },
                     params: {
                         titleName: this.state.keyboardInput
                     }
