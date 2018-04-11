@@ -2,12 +2,47 @@ import React from 'react';
 //import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
+import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 
 // Homepage component/module.
-class Home extends React.Component {
+//class Home extends React.Component {
 // additional classes go here
 
+
+
+class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.getUserInfo = this.getUserInfo.bind(this); // this right now just shows what was entered
+      }
+    
+      getUserInfo(event) {
+        const cookies = new Cookies();
+        
+        var json;
+                /*axios.get('http://localhost:8000/api/searchtitle', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    },
+                    params: {
+                        titleName: this.state.keyboardInput
+                    }
+                })
+                .then(res => {
+                    
+                    //json = JSON.parse(res.data);
+                    
+                })
+                .catch(function (error) {
+                console.log(error);
+                alert('error:' + error);
+                });
+            }*/
+            
+            event.preventDefault();
+    }
 
     render() {
         return (
@@ -28,11 +63,9 @@ class Home extends React.Component {
                                             <div className="card-body">
                                                 
                                                
-                                                        <b>User Name:</b>   (databse entry)  <br/>
+                                                        <b>User Name:</b>   (database entry)  <br/>
                                                         <b>Current Email:</b> (database entry) <br/>
                                                         <b>Contact Number:</b> (database entry) <br/>
-                                                        <b>Seller Rating:</b>  (database entry) <br/>
-                                                        <b>Update Location:</b> (link to update Google API location for account) <br/>
                                                         <br/>
                                                         <a  href="/user_settings"><i className="fa fa-gear"></i><b>Update Information</b></a>
                                                 

@@ -28,15 +28,15 @@ class Settings extends React.Component {
                                     <form action="/user_setting_change.js">
                                         <div class="form-group">
                                             <b><label for="changeNumber">Change Number</label></b>
-                                            <br/>Current Number <input type="text" class="input-large bfh-phone"
+                                            <input type="text" class="form-control input-large bfh-phone"
                                                                        data-country="US" id="currentNum"
-                                                                       placeholder="XXX-XXX-XXXX"/>
-                                            <br/>New Number <input type="text" class="input-large bfh-phone"
+                                                                       placeholder="Current Number"/>
+                                            <input type="text" class="form-control input-large bfh-phone"
                                                                    data-country="US" id="newNum"
-                                                                   placeholder="XXX-XXX-XXXX"/>
-                                            <br/>Confirm Number <input type="text" class="input-large bfh-phone"
+                                                                   placeholder="New Number"/>
+                                            <input type="text" class="form-control input-large bfh-phone"
                                                                        data-country="US" id="confirmNum"
-                                                                       placeholder="XXX-XXX-XXXX"/>
+                                                                       placeholder="Confirm Number"/>
                                         </div>
 
                                         <div class="form-group">
@@ -57,6 +57,7 @@ class Settings extends React.Component {
                                                 email with anyone else.
                                             </small>
                                         </div>
+                                        
 
                                         <b>Subscribe To Email Alerts?</b><br/>
                                         <div class="form-check form-check-inline">

@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
-import TableRow from '../TableRow/tablerow';
+//import TableRow from '../TableRow/tablerow';
 import { Link } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 
@@ -20,7 +20,7 @@ class Home extends React.Component {
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this); // this right now just shows what was entered
-        this.tabRow;
+        //this.tabRow;
       }
     
       handleChange1(event) {
@@ -89,14 +89,14 @@ class Home extends React.Component {
             }*/
             event.preventDefault();
     }
-    tabRow(){
+    /*tabRow(){
         /// this.state.data.books is what it used to be
         if(this.state.books instanceof Array){
             return this.state.books.map(function(object, i){
                 return <TableRow obj={object} key={i} />;
             })
           }
-        }
+        }*/
     
     
     

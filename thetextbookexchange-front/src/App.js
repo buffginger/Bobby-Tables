@@ -15,7 +15,7 @@ import SellBook from './Components/SellBook/sellbook'
 import Register from './Components/Auth/register'
 import Login from './Components/Auth/login'
 import Welcome from './Components/Welcome/welcome'
-import TableRow from './Components/TableRow/tablerow'
+//import TableRow from './Components/TableRow/tablerow'
 import SampleBook from './Components/ViewBook/viewbook'
 import Account from './Components/Account/account'
 /* *********************** END COMPONENTS *********************** */
@@ -35,7 +35,7 @@ const AppMain = () => (
                 <Route path="/sell" component={SellBook}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
-                <Route path="/tablerow" component={TableRow}/>
+                
                 <Route path="/samplebook" component={SampleBook}/>
                 <Route component={NotFound}/>
             </Switch>
