@@ -105,6 +105,23 @@ class ViewBook extends React.Component {
                                             </ul>
                                         </div>
 
+
+                                         <p> google maps stuff</p>
+                                    <p> this is the embedded map </p>
+                                    <iframe  style={{width:600,
+                                    height:450,
+                                    frameborder:0,
+                                    border:0}}
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=Omaha,Nebraska" allowfullscreen>
+                                    </iframe>
+                                    
+                                    you can do a place or you can do lat long as seen in the code above this line
+                                    https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=Space+Needle,Seattle+WA
+                                    https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=+41.2582497+,+-96.0128936+"
+
+
+
+
                                         <hr/>
                                         <div>
                                             <ul>
