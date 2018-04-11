@@ -53,7 +53,7 @@ class Home extends React.Component {
                         <div className="jumbotron jumbotron-fluid jumbotron-minimalpadding">
                             <div className="container-minimal">
                             
-                            <h1 className="display-1" style={{"paddingLeft": 15}}>User Settings</h1>
+                            <h1 className="display-1" style={{"paddingLeft": 15}}>Account Information</h1>
                             <p className="lead" style={{"paddingLeft": 25}}> <b>Welcome back <i>(user name)</i>!</b></p> 
                                 <hr/> 
 

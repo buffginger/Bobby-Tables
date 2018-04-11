@@ -10,7 +10,7 @@ class Sidebar extends React.Component {
                 <h4 id="sideBarTitle"><a href="/">The Textbook Exchange</a></h4>
                 <ul className="nav nav-pills flex-column" id="sideBarItemContainer">
                     <li className="nav-item">
-                        <a className="nav-link" href="/"><i className="fa fa-home"></i>Home</a>
+                        <a className="nav-link" href="/home"><i className="fa fa-home"></i>Home</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/account"><i className="fa fa-user"></i>Account</a>
