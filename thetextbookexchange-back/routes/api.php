@@ -33,6 +33,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post('books', 'BooksController@store');
     Route::put('books/{book}', 'BooksController@update');
     Route::delete('books{book}', 'BooksController@delete');
+    Route::get('/userInfo', 'AuthController@me');
 
     Route::get('/searchtitle', 'BooksController@searchTitle');
 });

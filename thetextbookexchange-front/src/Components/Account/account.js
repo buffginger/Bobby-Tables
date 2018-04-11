@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 //import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
@@ -13,26 +14,111 @@ import Cookies from 'universal-cookie';
 
 
 class Home extends React.Component {
+    
     constructor(props) {
         super(props);
-        this.getUserInfo = this.getUserInfo.bind(this); // this right now just shows what was entered
+        this.state = {nameRet: '',
+                      emailRet: ''
+                    };
+       
+                    const cookies = new Cookies();
+                    var temp;
+                    //var json;
+                    //var nameRet;
+                    //var emailRet;
+                    
+            
+                    axios.get('http://localhost:8000/api/userInfo', {
+                        headers: {
+                            Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                        }
+                    })
+                    .then(res => {
+                         
+                        //json = JSON.parse(res.data);
+                        console.log(res.data)
+                        //nameRet = res.data.name;
+                        //emailRet  = res.data.email;
+                        //alert('Name:' + nameRet);
+                        
+                        
+                        this.setState({nameRet: res.data.name});
+                        temp = this.state.nameRet;
+                        alert('Name using setstate:' + this.state.nameRet);
+    
+                        
+                        
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    alert('error:' + error);
+                    });
+        
+        //this.getUserInfo = this.getUserInfo.bind(this); // this right now just shows what was entered
+        //componentDidMount;
+        
       }
     
       getUserInfo(event) {
-        const cookies = new Cookies();
+                const cookies = new Cookies();
+                //var json;
+                //var nameRet;
+                //var emailRet;
+                
         
-        var json;
-                /*axios.get('http://localhost:8000/api/searchtitle', {
+                axios.get('http://localhost:8000/api/userInfo', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
-                    },
-                    params: {
-                        titleName: this.state.keyboardInput
                     }
                 })
                 .then(res => {
-                    
+                     
                     //json = JSON.parse(res.data);
+                    console.log(res.data)
+                    //nameRet = res.data.name;
+                    //emailRet  = res.data.email;
+                    //alert('Name:' + nameRet);
+
+                    this.setState({nameRet: res.data.name});
+                    alert('Name:' + this.state.nameRet);
+
+                    
+                    
+                })
+                .catch(function (error) {
+                console.log(error);
+                alert('error:' + error);
+                });
+            
+                event.preventDefault();
+            }
+          
+            
+
+            /*componentDidMount() {
+                
+                const cookies = new Cookies();
+                var json;
+                var nameRet;
+                var emailRet;
+                
+        
+                axios.get('http://localhost:8000/api/userInfo', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    }
+                })
+                .then(res => {
+                     
+                    //json = JSON.parse(res.data);
+                    console.log(res.data)
+                    nameRet = res.data.name;
+                    emailRet  = res.data.email;
+                    alert('Name:' + nameRet);
+
+                    
+
+                    
                     
                 })
                 .catch(function (error) {
@@ -40,9 +126,44 @@ class Home extends React.Component {
                 alert('error:' + error);
                 });
             }*/
+
+            /*componentDidMount() { // try two does work, just doesnt post stuff in page
+                
+                const cookies = new Cookies();
+                //var json;
+                //var nameRet;
+                //var emailRet;
+                
+        
+                axios.get('http://localhost:8000/api/userInfo', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    }
+                })
+                .then(res => {
+                     
+                    //json = JSON.parse(res.data);
+                    console.log(res.data)
+                    //nameRet = res.data.name;
+                    //emailRet  = res.data.email;
+                    //alert('Name:' + nameRet);
+                    
+
+                    this.setState({nameRet: res.data.name});
+                    alert('Name using setstate:' + this.state.nameRet);
+
+                    
+                    
+                })
+                .catch(function (error) {
+                console.log(error);
+                alert('error:' + error);
+                });
+                
+            }*/
             
-            event.preventDefault();
-    }
+            
+    
 
     render() {
         return (
