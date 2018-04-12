@@ -25,6 +25,9 @@ class CreateBooksTable extends Migration
             $table->string('condition');
             $table->integer('price');
             $table->boolean('negotiable');
+            $table->longText('description');
+
+
 
 
         });

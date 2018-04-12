@@ -4,6 +4,20 @@ import Sidebar from '../Sidebar/sidebar';
 
 // Homepage component/module.
 class SellBook extends React.Component {
+
+    // Initialize the state
+    constructor(props) {
+    super(props);
+       
+    this.state = {
+          newBook: {
+              title: '',
+              description: '',
+              price: 0,
+              availability: 0
+          }
+        }
+
     render() {
         return (
             <div>

@@ -12,6 +12,7 @@ $factory->define(App\Book::class, function (Faker $faker) {
         'subject' => substr($faker->sentence(2), 0, -1),
         'condition' => substr($faker->sentence(2), 0, -1),
         'price' => $faker->numberBetween($min = 1, $max = 100),
-        'negotiable' => $faker->boolean()
+        'negotiable' => $faker->boolean(),
+        'description' => $faker->sentences($nb = 3, $asText = true)
     ];
 });
