@@ -110,19 +110,6 @@ class Home extends React.Component {
             }
             event.preventDefault();
     }
-<<<<<<< HEAD
-=======
-    /*tabRow(){
-        /// this.state.data.books is what it used to be
-        if(this.state.books instanceof Array){
-            return this.state.books.map(function(object, i){
-                return <TableRow obj={object} key={i} />;
-            })
-          }
-        }*/
-    
-    
->>>>>>> 882709fa1b3d4bd396eff568a589a7d510e4af1e
     
     componentDidMount() {
         axios.get(`https://api.thetextbookexchange.club/api/books`)
