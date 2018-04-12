@@ -1,16 +1,83 @@
-import React from 'react'
+import React from 'react';
+import axios from 'axios';
+//import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
+import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 
-// side bar has been edited
-// app.js has been edited
-// new file has been made under ./src/Components/Settings/settings.js
-// edited the sidebar nav to scroll *redacted
 
 
 // Homepage component/module.
 class Settings extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {  keyboardInput1: '',
+                        keyboardInput2: '',
+                        idForPush: ''
+                    };
+
+
+                    const cookies = new Cookies();
+                    axios.get('http://localhost:8000/api/userInfo', {
+                        headers: {
+                            Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                        }
+                    })
+                    .then(res => {
+                        this.setState({idForPush: res.data.id});
+                        console.log(res.data)
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    alert('error:' + error);
+                    });
+
+            this.handleChange1 = this.handleChange1.bind(this);
+            this.handleChange2 = this.handleChange2.bind(this);
+            this.handleSubmit = this.handleSubmit.bind(this);
+            //this.updateEmail = this.updateEmail.bind(this);
+      }
+
+      handleChange1(event) {
+        this.setState({keyboardInput1: event.target.value}); // this must remain to be value
+        //console.log('Input is KI1:' + this.state.keyboardInput1);
+      }
+
+      handleChange2(event) {
+        this.setState({keyboardInput2: event.target.value}); // this must remain to be value
+        //console.log('Input is KH2:' + this.state.keyboardInput2);
+      }
+      handleSubmit(event) {
+        
+        var idTemp = this.state.idForPush;
+        var nameTemp = this.state.keyboardInput1;
+        alert(idTemp + '    ' + nameTemp);
+    
+        axios.post('http://localhost:8000/api/updateName', {
+            id: idTemp,
+            name: nameTemp
+          })
+          .then(response=> {
+            alert('Tried to update name');
+          })
+          .catch(error=> {
+            alert('There was an error');
+          });
+      }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     render() {
         return (
             <div>
@@ -25,52 +92,28 @@ class Settings extends React.Component {
                                 <hr/>
 
                                 <div>
-                                    <form action="/user_setting_change.js">
+                                    <form onSubmit={this.handleSubmit}>
                                         <div class="form-group">
-                                            <b><label for="changeNumber">Change Number</label></b>
-                                            <br/>Current Number <input type="text" class="input-large bfh-phone"
-                                                                       data-country="US" id="currentNum"
-                                                                       placeholder="XXX-XXX-XXXX"/>
-                                            <br/>New Number <input type="text" class="input-large bfh-phone"
-                                                                   data-country="US" id="newNum"
-                                                                   placeholder="XXX-XXX-XXXX"/>
-                                            <br/>Confirm Number <input type="text" class="input-large bfh-phone"
-                                                                       data-country="US" id="confirmNum"
-                                                                       placeholder="XXX-XXX-XXXX"/>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <b><label for="changePassword">Change Password</label></b>
-                                            <input type="password" class="form-control" id="currentPW"
-                                                   placeholder="Current Password"/>
-                                            <input type="password" class="form-control" id="newPW"
-                                                   placeholder="New Password"/>
-                                            <input type="password" class="form-control" id="confirmPW"
-                                                   placeholder="Confirm New Password"/>
+                                            <b><label for="changePassword">Change User Name</label></b>
+                                            <input type="text" class="form-control" id="usernamechange"
+                                                   placeholder="Enter New User Name" value={this.state.keyboardInput1} onChange={this.handleChange1}/>
                                         </div>
 
                                         <div class="form-group">
                                             <b><label for="userEmail">Change Email</label></b>
                                             <input type="email" class="form-control" id="" aria-describedby="emailHelp"
-                                                   placeholder="Enter new email"/>
+                                                   placeholder="Enter new email"  value={this.state.keyboardInput2} onChange={this.handleChange2}/>
                                             <small id="emailInput" class="form-text text-muted">We'll never share your
                                                 email with anyone else.
                                             </small>
                                         </div>
+                                        
 
-                                        <b>Subscribe To Email Alerts?</b><br/>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="checkBox1" value="y"/>
-                                            <label class="form-check-label" for="yesBox">Yes</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkBox" id="checkbox2" value="n"/>
-                                            <label class="form-check-label" for="noBox">No</label>
-                                        </div>
-                                        <br/><br/>
+                                        <br/>
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
+                               
                                 </p>
                             </div>
                         </div>
@@ -83,3 +126,11 @@ class Settings extends React.Component {
 
 // Export this module to be imported from App.js.
 export default Settings
+
+/*
+<div class="form-group">
+                                            <b><label for="changePassword">Change Password</label></b>
+                                            <input type="password" class="form-control" id="confirmPW"
+                                                   placeholder="Enter New Password" value={this.state.keyboardInput1} onChange={this.handleChange1}/>
+                                        </div>
+                                        */

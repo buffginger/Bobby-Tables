@@ -25,6 +25,9 @@ Route::post('/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::post('/password/reset', 'Auth\ResetPasswordController@reset');
 Route::post('/logout', 'AuthController@logout');
 
+/*  routes for updating account information */
+Route::post('/updateName', 'UpdateController@updateName');
+
 /* These routes are protected by authentication. */
 Route::group(['middleware' => ['jwt.auth']], function () {
     Route::get('books', 'BooksController@index');
@@ -33,6 +36,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::post('books', 'BooksController@store');
     Route::put('books/{book}', 'BooksController@update');
     Route::delete('books{book}', 'BooksController@delete');
+    Route::get('/userInfo', 'AuthController@me');
 
     Route::get('/searchtitle', 'BooksController@searchTitle');
     Route::get('/searchAuthor', 'BooksController@searchAuthor');
