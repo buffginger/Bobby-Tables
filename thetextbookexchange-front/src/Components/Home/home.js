@@ -110,10 +110,7 @@ class Home extends React.Component {
             }
             event.preventDefault();
     }
-<<<<<<< Updated upstream
     
-=======
-
     /*tabRow(){
         /// this.state.data.books is what it used to be
         if(this.state.books instanceof Array){
@@ -123,7 +120,6 @@ class Home extends React.Component {
           }
         }*/
         
->>>>>>> Stashed changes
     componentDidMount() {
         axios.get(`https://api.thetextbookexchange.club/api/books`)
         .then(res => {
@@ -188,7 +184,7 @@ class Home extends React.Component {
                                                     <h6 class="card-title noLnBrk">Edition: {book.edition}</h6>
                                                     <h6 class="card-title noLnBrk">Subject: {book.subject}</h6>
                                                     <br/><br/>
-                                                    <a href="./samplebook/" class="btn btn-primary">Check it out!</a>
+                                                    <a href={"./samplebook" + book.id} class="btn btn-primary">Check it out!</a>
                                                 </div>
                                                 <div class="bookImg">
                                                     <img src={book.image} alt="Book Image" width="120" height="135"/>

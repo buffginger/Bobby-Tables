@@ -37,6 +37,8 @@ const AppMain = () => (
                 <Route path="/login" component={Login}/>
                 
                 <Route path="/samplebook" component={SampleBook}/>
+                <Route path="/samplebook:handle" component={SampleBook}/>
+
                 <Route component={NotFound}/>
             </Switch>
         </div>

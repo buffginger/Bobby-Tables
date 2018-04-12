@@ -1,9 +1,32 @@
 import React from 'react'
+import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
+import queryString from 'query-string';
 
 // Homepage component/module.
 class ViewBook extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+                        book: []
+                    };
+    
+      }
+
+    componentDidMount() {
+        const { handle } = this.props.match.params
+        console.log(handle)
+        axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
+        .then(res => res.data)
+        .then(book => {
+            this.setState({
+                book: book
+            });
+        });
+    }
+
     render() {
         return (
             <div>
@@ -12,87 +35,32 @@ class ViewBook extends React.Component {
                     <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
                             <div className="container">
-                                <h1 className="display-1">Tumbeasts - Special Edition | $5</h1>
+                                <h1 className="display-1">{this.state.book.title} | ${this.state.book.price}</h1>
                                 <p className="lead" style={{"padding-left": 15}}>
 
                                     <div id="carousel" class="carousel slide" data-ride="carousel">
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                                            <li data-target="#carousel" data-slide-to="1"></li>
-                                            <li data-target="#carousel" data-slide-to="2"></li>
-                                        </ol>
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img class="d-block w-100" style={{"width": 300, "height": 600}}
-                                                     src="http://assets.s4rb-systems.co.uk/images/tumbeasts/sign-2.png"
-                                                     alt="Slide One"/>
-                                            </div>
-
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" style={{"width": 300, "height": 600}}
-                                                     src="https://ih0.redbubble.net/image.55998815.1905/mwo%2C187x204%2Cipad_2_snap-pad%2C210x230%2Cf8f8f8.lite-1.jpg"
-                                                     alt="Slide Two"/>
-                                            </div>
-
-                                            <div class="carousel-item">
-                                                <img class="d-block w-100" style={{"width": 300, "height": 600}}
-                                                     src="http://assets.s4rb-systems.co.uk/images/tumbeasts/run-2.png"
-                                                     alt="Third slide"/>
-                                            </div>
+                                        <div class="bookImg">
+                                            <img src={this.state.book.image} alt="Book Image" width="120" height="135"/>
                                         </div>
-                                        <a class="carousel-control-prev" href="#carousel" role="button"
-                                           data-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                        <a class="carousel-control-next" href="#carousel" role="button"
-                                           data-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
                                     </div>
 
                                     <hr/>
 
                                     <div style={{"padding-left": 15}} div class="book-img">
                                         <h2> Item Description </h2>
-                                        <p>Hello All! I am selling the tumbeasts book - as the title specifies. The
-                                            tumbeasts within vary in emotions and mental stability. They are collected
-                                            from all over the internet and therefore are very unique and also compounded
-                                            into a special edition, just for you! The book is 5$. What a bargain.
-                                        </p>
+                                        <p>{this.state.book.description}</p>
 
                                         <h2> Item Details </h2>
                                         <div>
                                             <ul>
-                                                <li><b>ISBN-10:</b> <i> 1000123211 </i></li>
-                                                <li><b>ISBN-13:</b> <i> 4021000123211 </i></li>
-                                                <li><b>Publisher:</b> <i> Unknown </i></li>
-                                                <li><b>Author(s):</b> <i> Unknown </i></li>
-                                                <li><b>Edition:</b> <i> 10th </i></li>
-                                                <li><b>Copyright Year:</b> <i> 2018 </i></li>
-                                                <li><b>Dimension(s):</b> <i> Unknown </i></li>
-                                                <li><b>Language:</b> <i> English </i></li>
-                                                <li><b>Topic:</b> <i> Computer Science </i></li>
-                                                <li><b>Spine Type:</b> <i> Hard-Cover/Paper-Back </i></li>
-                                                <li><b>Appoximate Pages:</b> <i> 700^56 </i></li>
-                                            </ul>
-                                        </div>
-
-                                        <h2> Item Condition </h2>
-                                        <p> These tumbeasts are in great condition, spare the second which is a bit
-                                            pixelated. </p>
-
-                                        <h2> Table of Contents </h2>
-                                        <div>
-                                            <ul>
-                                                <li>Front Cover</li>
-                                                <li>Table of Contents</li>
-                                                <li>Chapter 1: Why Bobby-Tables Rules</li>
-                                                <li>Chapter 2: Get In Exchange - The Textbook Exchange</li>
-                                                <li>Chapter 3: How Software Engineering Changes The Game</li>
-                                                <li>Chapter 4: Give Us An A!</li>
-                                                <li>Chapter xx: Content Unlisted</li>
+                                                <li><b>Title:</b> <i> {this.state.book.title} </i></li>
+                                                <li><b>Author:</b> <i> {this.state.book.author} </i></li>
+                                                <li><b>ISBN:</b> <i> {this.state.book.isbn} </i></li>
+                                                <li><b>Edition:</b> <i> {this.state.book.edition} </i></li>
+                                                <li><b>Subject:</b> <i> {this.state.book.subject} </i></li>
+                                                <li><b>Condition:</b> <i> {this.state.book.condition} </i></li>
+                                                <li><b>Price:</b> <i> ${this.state.book.price} </i></li>
+                                                <li><b>Negotiable:</b> <i> {this.state.book.negotiable} </i></li>
                                             </ul>
                                         </div>
 
@@ -114,14 +82,6 @@ class ViewBook extends React.Component {
                                     border:0}}
                                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=Omaha,Nebraska" allowfullscreen>
                                     </iframe>
-                                    
-                                    you can do a place or you can do lat long as seen in the code above this line
-                                    https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=Space+Needle,Seattle+WA
-                                    https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=+41.2582497+,+-96.0128936+"
-
-
-
-
                                         <hr/>
                                         <div>
                                             <ul>

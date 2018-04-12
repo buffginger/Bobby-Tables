@@ -9,14 +9,15 @@ class SellBook extends React.Component {
     constructor(props) {
     super(props);
        
-    this.state = {
-          newBook: {
-              title: '',
-              description: '',
-              price: 0,
-              availability: 0
-          }
+        this.state = {
+            newBook: {
+                title: '',
+                description: '',
+                price: 0,
+                availability: 0
+            }
         }
+    }
 
     render() {
         return (
