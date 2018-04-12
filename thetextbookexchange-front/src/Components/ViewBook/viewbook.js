@@ -15,16 +15,24 @@ class ViewBook extends React.Component {
     
       }
 
-    componentDidMount() {
+    async componentDidMount() {
+
         const { handle } = this.props.match.params
-        console.log(handle)
+
+        try {
+            const response = await axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
+            console.log("res:" + response);
+        } catch (error) {
+            console.log("err" + error);
+            this.props.history.push("/home");
+        }
         axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
         .then(res => res.data)
         .then(book => {
             this.setState({
                 book: book
-            });
-        });
+            })
+        })
     }
 
     render() {
