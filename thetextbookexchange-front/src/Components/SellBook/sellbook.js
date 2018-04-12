@@ -50,13 +50,8 @@ class SellBook extends React.Component {
                             <h5 className="card-header">Item Details</h5>
                             <div className="card-body">
                                 <div className="form-group">
-                                    <label htmlFor="isbn10">ISBN-10</label>
-                                    <input type="text" className="form-control" id="isbn10" aria-describedby="ISBN10"
-                                           placeholder="#"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="isbn13">ISBN-13</label>
-                                    <input type="text" className="form-control" id="isbn13" aria-describedby="ISBN13"
+                                    <label htmlFor="isbn">ISBN</label>
+                                    <input type="text" className="form-control" id="isbn" aria-describedby="ISBN"
                                            placeholder="#"/>
                                 </div>
                                 <div className="form-group">
@@ -74,20 +69,11 @@ class SellBook extends React.Component {
                                     <input type="text" className="form-control" id="edition"
                                            aria-describedby="Book Edition" placeholder="#"/>
                                 </div>
+                                
                                 <div className="form-group">
-                                    <label htmlFor="copyright">Copyright Year</label>
-                                    <input type="text" className="form-control" id="copyright"
-                                           aria-describedby="Book Copyright Year" placeholder="ex. 2018"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="spinetype">Spine Type</label>
-                                    <input type="text" className="form-control" id="spinetype"
-                                           aria-describedby="Spine Type" placeholder="ex. Hardcover or Paperback"/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="pages">Approximate Pages</label>
-                                    <input type="text" className="form-control" id="pages"
-                                           aria-describedby="Approximate Book Pages" placeholder="#"/>
+                                    <label htmlFor="subject">Subject</label>
+                                    <input type="text" className="form-control" id="subject"
+                                           aria-describedby="Subject" placeholder="e.g Math"/>
                                 </div>
                             </div>
                         </div>

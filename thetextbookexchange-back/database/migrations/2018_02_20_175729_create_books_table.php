@@ -22,6 +22,11 @@ class CreateBooksTable extends Migration
             $table->string('edition');
             $table->string('image');
             $table->string('subject');
+            $table->string('condition');
+            $table->integer('price');
+            $table->boolean('negotiable');
+
+
         });
     }
 

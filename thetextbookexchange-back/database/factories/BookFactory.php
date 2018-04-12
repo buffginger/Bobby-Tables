@@ -10,5 +10,8 @@ $factory->define(App\Book::class, function (Faker $faker) {
         'edition' => substr($faker->sentence(2), 0, -1),
         'image' => substr($faker->sentence(2), 0, -1),
         'subject' => substr($faker->sentence(2), 0, -1),
+        'condition' => substr($faker->sentence(2), 0, -1),
+        'price' => $faker->numberBetween($min = 1, $max = 100),
+        'negotiable' => $faker->boolean()
     ];
 });
