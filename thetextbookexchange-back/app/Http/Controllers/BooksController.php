@@ -28,28 +28,22 @@ class BooksController extends Controller
     }
 
     public function searchTitle(Request $request){
-        $fullText = $request['titleName'];      // User input
-        $arr = explode(' ', $fullText);         // Split the string on \s
-        $results = [];                          // Init 
 
-        // Look for a match for each keyword ($value) 
-        foreach ($arr as $value) {
-            array_push($results, DB::table('books')
-            ->where('title', 'like', '%'.$value.'%')->get());
-        }
-
+        $results = DB::table('books')->where('title', 'like', '%'.$request['titleName'].'%')->get();
         Log::info($results);
 
         return response()->json($results, 201);
     }
-    /*public function searchISBN(Request $request){
-        $results = DB::table('books')->where('isbn', 'LIKE', $request)->get();
+    
+    public function searchISBN(Request $request){
+        $results = DB::table('books')->where('isbn', 'like', '%'.$request['isbn'].'%')->get();
         return response()->json($results, 201);
     }
+
     public function searchAuthor(Request $request){
-        $results = DB::table('books')->where('author', 'LIKE', $request)->get();
+        $results = DB::table('books')->where('author', 'like', '%'.$request['author'].'%')->get();
         return response()->json($results, 201);
-    }*/
+    }
 
     public function store(Request $request)
     {

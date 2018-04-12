@@ -37,12 +37,10 @@ class Home extends React.Component {
         alert('A name was submitted: ' + this.state.keyboardInput + '\n' +
         'A selection type was made: ' + this.state.selection);
         event.preventDefault();
-
-            //let testURL = 'http://localhost:3030';
           
             if(this.state.selection === 'title'){
                 var self = this;
-                var json;
+                var books;
                 axios.get('http://localhost:8000/api/searchtitle', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
@@ -51,9 +49,11 @@ class Home extends React.Component {
                         titleName: this.state.keyboardInput
                     }
                 })
+                // Set the new state of books 
                 .then(res => {
                     
-                    //json = JSON.parse(res.data);
+                    books = res.data;
+                    this.setState({books});
                     
                 })
                 .catch(function (error) {
@@ -61,52 +61,56 @@ class Home extends React.Component {
                 alert('error:' + error);
                 });
             }
-            /*else if(this.state.selection === 'author'){
-                axios.get(testURL, {
+
+            else if(this.state.selection === 'author'){
+                var self = this;
+                var books;
+                axios.get('http://localhost:8000/api/searchAuthor', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    },
                     params: {
                         author: this.state.keyboardInput
                     }
                 })
+                // Set the new state of books 
                 .then(res => {
-                    this.setState({ searchResults: res.data.searchResults });
+                    
+                    books = res.data;
+                    this.setState({books});
+                    
                 })
                 .catch(function (error) {
-                    console.log(error);
+                console.log(error);
+                alert('error:' + error);
                 });
             }
             else if(this.state.selection === 'isbn'){
-                axios.get(testURL, {
+                var self = this;
+                var books;
+                axios.get('http://localhost:8000/api/searchISBN', {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                    },
                     params: {
                         isbn: this.state.keyboardInput
                     }
                 })
+                // Set the new state of books 
                 .then(res => {
-                    this.setState({ searchResults: res.data.searchResults });
+                    
+                    books = res.data;
+                    this.setState({books});
+                    
                 })
                 .catch(function (error) {
-                    console.log(error);
+                console.log(error);
+                alert('error:' + error);
                 });
-            }*/
+            }
             event.preventDefault();
     }
-    tabRow(){
-        /// this.state.data.books is what it used to be
-        if(this.state.books instanceof Array){
-            return this.state.books.map(function(object, i){
-                return <TableRow obj={object} key={i} />;
-            })
-          }
-        }
     
-    
-    
-    
-    
-    
-    
-    
-    
-
     componentDidMount() {
         axios.get(`https://api.thetextbookexchange.club/api/books`)
         .then(res => {

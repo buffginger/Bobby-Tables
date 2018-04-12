@@ -35,4 +35,6 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::delete('books{book}', 'BooksController@delete');
 
     Route::get('/searchtitle', 'BooksController@searchTitle');
+    Route::get('/searchAuthor', 'BooksController@searchAuthor');
+    Route::get('/searchISBN', 'BooksController@searchISBN');
 });
