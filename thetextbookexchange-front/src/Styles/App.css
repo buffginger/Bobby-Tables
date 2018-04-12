@@ -110,14 +110,14 @@ body {
 
 #loginDiv {
     width: 320px;
-    height: 270px;
+    height: 250px;
     margin-left: -160px;
-    margin-top: -135px;
+    margin-top: -125px;
 }
 
 #registerDiv {
     width: 320px;
-    height: 380px;
+    height: 360px;
     margin-left: -160px;
     margin-top: -190px;
 }
@@ -129,4 +129,20 @@ body {
     top: 50vh;
     padding: 10px;
     background-color: black;
+}
+
+.credentialsError {
+    width: 320px;
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    margin-left: -160px;
+}
+
+#credentialsLogError {
+    margin-top: 105px;
+}
+
+#credentialsRegError {
+    margin-top: 172px;
 }
