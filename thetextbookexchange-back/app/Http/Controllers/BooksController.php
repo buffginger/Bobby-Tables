@@ -47,7 +47,11 @@ class BooksController extends Controller
 
     public function store(Request $request)
     {
-        $book = Book::create($request->all());
+        DB::table('books')->insert([
+        'title' => $request['title'], 
+        'author' => $request['author']
+    ]);
+        Log::info("You created the book:" + $request);
  
         return response()->json($book, 201);
     }
