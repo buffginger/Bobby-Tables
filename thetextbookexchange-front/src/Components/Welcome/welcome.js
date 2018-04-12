@@ -51,7 +51,7 @@ class Welcome extends Component {
         return (
             <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
                 <div class="w3-display-middle lgnReg text-center">
-                    <h1 className="whiteText">Welcome to the Textbook Exchange</h1><br/>
+                    <h1 id="welcomeMsg" className="whiteText">Welcome to the Textbook Exchange</h1><br/>
                     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity lgnReg"><a
                         href="/login">LOGIN</a></span>
                     <br/><br/>
