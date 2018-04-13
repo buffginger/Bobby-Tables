@@ -10,7 +10,7 @@ class SellBook extends React.Component {
     // Initialize the state
     constructor(props) {
     super(props);
-       
+    /*
     this.state = {
               title: '',
               author: '',
@@ -22,40 +22,39 @@ class SellBook extends React.Component {
               negotiable: false,
               description: ''
         }
-    
+    */
 
     //Boilerplate code for binding methods with `this`
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleInput = this.handleInput.bind(this);
     }  
-
-    /* This method dynamically accepts inputs and stores it in the state */
-    handleInput(key, e) {
-    //alert('key:' + key + "  e: " + e.target.value);
-    this.setState({key: e.target.value})
-    }
      
-    /*Duplicating and updating the state 
-    var state = Object.assign({}, this.state.newBook); 
-    state[key] = e.target.value;
-    this.setState({newBook: state });
-    } */
-
     /* This method is invoked when submit button is pressed */
     handleSubmit(e) {
-    //preventDefault prevents page reload   
+    //preventDefault prevents page reload 
+    e.preventDefault();  
+    const data = new FormData(e.target);
     const cookies = new Cookies();
 
-    axios.post('http://localhost:8000/api/books', {
+    axios.post('http://localhost:8000/api/books', data, {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
-                    },
-                    params: {
-                        title: this.state.title,
-                        author: this.state.author
-                    }
-                })
-    alert("You submitted: title:" + this.state.title + "and author: " + this.state.author);
+                        'Content-Type': 'multipart/form-data'
+                    }       
+    })
+    .then(function (response) {
+        //handle success
+        console.log(response);
+    })
+    .catch(function (response) {
+        //handle error
+        console.log(response);
+    });
+
+    alert("You submitted stuff. Check the console for values");
+    for (var [key, value] of data.entries()) { 
+    console.log(key, value);
+    }
+    
     }
 
     render() {
@@ -98,8 +97,7 @@ class SellBook extends React.Component {
                                 <div className="form-group">
                                     <label htmlFor="description">Let potential buyers know what textbook you are selling
                                         and anything they should know about it.</label>
-                                    <input type="textarea" className="form-control" id="exampleFormControlTextarea1"
-                                              onChange={(e)=>this.handleInput('description',e)} />
+                                    <input type="textarea" className="form-control" id="exampleFormControlTextarea1" />
                                 </div>
                             </div>
                         </div>
@@ -110,31 +108,31 @@ class SellBook extends React.Component {
                             <div className="form-group">
                                     <label htmlFor="title">Title</label>
                                     <input type="text" className="form-control" id="title" aria-describedby="title"
-                                           placeholder="title" onChange={(e)=>this.handleInput('title',e)}/>
+                                           placeholder="title"/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="isbn">ISBN</label>
                                     <input type="text" className="form-control" id="isbn" aria-describedby="ISBN"
-                                           placeholder="#" onChange={(e)=>this.handleInput('isbn',e)}/>
+                                           placeholder="#" />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="author">Author(s)</label>
                                     <input type="text" className="form-control" id="author"
                                            aria-describedby="Book Author" placeholder="Name(s)" 
-                                           onChange={(e)=>this.handleInput('author',e)}/>
+                                           />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="edition">Edition</label>
                                     <input type="text" className="form-control" id="edition"
                                            aria-describedby="Book Edition" placeholder="#"
-                                           onChange={(e)=>this.handleInput('edition',e)}/>
+                                           />
                                 </div>
                                 
                                 <div className="form-group">
                                     <label htmlFor="subject">Subject</label>
                                     <input type="text" className="form-control" id="subject"
                                            aria-describedby="Subject" placeholder="e.g Math"
-                                           onChange={(e)=>this.handleInput('subject',e)}/>
+                                           />
                                 </div>
                             </div>
                         </div>
@@ -145,7 +143,7 @@ class SellBook extends React.Component {
                                     <label htmlFor="exampleFormControlSelect1">Let everyone know what shape your book is
                                         in.</label>
                                     <select className="form-control" id="exampleFormControlSelect1"
-                                    onChange={(e)=>this.handleInput('condition',e)}>
+                                    >
                                         <option>Select></option>
                                         <option>New</option>
                                         <option>Mint / Like New</option>
@@ -160,16 +158,15 @@ class SellBook extends React.Component {
                             <h5 className="card-header">Price</h5>
                             <div className="card-body">
                                 <div className="form-check">
-                                    <input type="checkbox" className="form-check-input" id="negotiable"
-                                    defaultChecked={this.state.negotiable} 
-                                    onChange={(e)=>this.handleInput('negotiable',e)}/>
+                                    <input type="checkbox" className="form-check-input" id="negotiable" 
+                                    />
                                     <label className="form-check-label" htmlFor="negotiable">Negotiable</label>
                                 </div>
                                 <br/>
                                 <div className="form-group">
                                     <label htmlFor="price">Sell Price</label>
                                     <input type="text" className="form-control" id="price" aria-describedby="Sell Price"
-                                           placeholder="$" onChange={(e)=>this.handleInput('price',e)}/>
+                                           placeholder="$" />
                                 </div>
                             </div>
                         </div>
