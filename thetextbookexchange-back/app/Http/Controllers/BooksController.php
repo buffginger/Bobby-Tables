@@ -48,11 +48,19 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         Log::info($request);
+
         DB::table('books')->insert([
         'title' => $request['title'], 
-        'author' => $request['author']
+        'author' => $request['author'],
+        'isbn' => $request['isbn'],
+        'edition' => $request['edition'],
+        'subject' => $request['subject'],
+        'condition' => $request['condition'],
+        'price' => $request['price'],
+        'negotiable' => $request['negotiable'],
+        'description' => $request['description'],
+        'image' => 'https://emojiisland.com/products/open-book-emoji-icon'
     ]);
-        Log::info("You created the book:" + $request);
  
         return response()->json($book, 201);
     }

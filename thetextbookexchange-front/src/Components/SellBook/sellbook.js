@@ -10,7 +10,7 @@ class SellBook extends React.Component {
     // Initialize the state
     constructor(props) {
     super(props);
-    /*
+    
     this.state = {
               title: '',
               author: '',
@@ -22,7 +22,7 @@ class SellBook extends React.Component {
               negotiable: false,
               description: ''
         }
-    */
+    
 
     //Boilerplate code for binding methods with `this`
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,13 +32,30 @@ class SellBook extends React.Component {
     handleSubmit(e) {
     //preventDefault prevents page reload 
     e.preventDefault();  
-    const data = new FormData(e.target);
+    const form = new FormData(e.target);
     const cookies = new Cookies();
+    var isNegotiable = false;
+
+    if (form.get("negotiable") != null) {
+        isNegotiable = true;
+    }
+    
+    // Set the new states 
+    const data = {
+        title: form.get('title'),
+        author: form.get('author'),
+        isbn: form.get("isbn"),
+        edition: form.get("edition"),
+        subject: form.get("subject"),
+        condition: form.get("condition"),
+        price: form.get("price"),
+        negotiable: isNegotiable,
+        description: form.get("description")
+    }
 
     axios.post('http://localhost:8000/api/books', data, {
                     headers: {
-                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
-                        'Content-Type': 'multipart/form-data'
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
                     }       
     })
     .then(function (response) {
@@ -50,10 +67,7 @@ class SellBook extends React.Component {
         console.log(response);
     });
 
-    alert("You submitted stuff. Check the console for values");
-    for (var [key, value] of data.entries()) { 
-    console.log(key, value);
-    }
+    
     
     }
 
@@ -97,7 +111,7 @@ class SellBook extends React.Component {
                                 <div className="form-group">
                                     <label htmlFor="description">Let potential buyers know what textbook you are selling
                                         and anything they should know about it.</label>
-                                    <input type="textarea" className="form-control" id="exampleFormControlTextarea1" />
+                                    <input type="textarea" name="description" className="form-control" id="exampleFormControlTextarea1" />
                                 </div>
                             </div>
                         </div>
@@ -108,31 +122,31 @@ class SellBook extends React.Component {
                             <div className="form-group">
                                     <label htmlFor="title">Title</label>
                                     <input type="text" className="form-control" id="title" aria-describedby="title"
-                                           placeholder="title"/>
+                                           placeholder="title" name="title"/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="isbn">ISBN</label>
                                     <input type="text" className="form-control" id="isbn" aria-describedby="ISBN"
-                                           placeholder="#" />
+                                           placeholder="#" name="isbn"/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="author">Author(s)</label>
                                     <input type="text" className="form-control" id="author"
                                            aria-describedby="Book Author" placeholder="Name(s)" 
-                                           />
+                                           name="author"/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="edition">Edition</label>
                                     <input type="text" className="form-control" id="edition"
                                            aria-describedby="Book Edition" placeholder="#"
-                                           />
+                                           name="edition"/>
                                 </div>
                                 
                                 <div className="form-group">
                                     <label htmlFor="subject">Subject</label>
                                     <input type="text" className="form-control" id="subject"
                                            aria-describedby="Subject" placeholder="e.g Math"
-                                           />
+                                           name="subject"/>
                                 </div>
                             </div>
                         </div>
@@ -143,7 +157,7 @@ class SellBook extends React.Component {
                                     <label htmlFor="exampleFormControlSelect1">Let everyone know what shape your book is
                                         in.</label>
                                     <select className="form-control" id="exampleFormControlSelect1"
-                                    >
+                                    name="condition">
                                         <option>Select></option>
                                         <option>New</option>
                                         <option>Mint / Like New</option>
@@ -159,14 +173,14 @@ class SellBook extends React.Component {
                             <div className="card-body">
                                 <div className="form-check">
                                     <input type="checkbox" className="form-check-input" id="negotiable" 
-                                    />
+                                    name="negotiable"/>
                                     <label className="form-check-label" htmlFor="negotiable">Negotiable</label>
                                 </div>
                                 <br/>
                                 <div className="form-group">
                                     <label htmlFor="price">Sell Price</label>
                                     <input type="text" className="form-control" id="price" aria-describedby="Sell Price"
-                                           placeholder="$" />
+                                           placeholder="$" name="price"/>
                                 </div>
                             </div>
                         </div>
