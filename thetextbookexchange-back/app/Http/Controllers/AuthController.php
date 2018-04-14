@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -79,5 +83,18 @@ class AuthController extends Controller
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
+    }
+
+    public function updateName(Request $request) 
+    {
+        Log::info($request);
+
+        DB::table('users')
+            ->where('id', $request['id'])
+            ->update(['name' => $request['name'] ]);
+            return response()->json([
+                'done' => 'no',
+
+            ]);
     }
 }

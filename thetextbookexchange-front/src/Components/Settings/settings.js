@@ -27,13 +27,13 @@ class Settings extends React.Component {
                     })
                     .then(res => {
                         this.setState({idForPush: res.data.id});
-                        console.log(res.data)
+                        //console.log(res.data)
                     })
                     .catch(function (error) {
                     console.log(error);
                     alert('error:' + error);
                     });
-
+                    alert('ready');
             this.handleChange1 = this.handleChange1.bind(this);
             this.handleChange2 = this.handleChange2.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
@@ -49,22 +49,40 @@ class Settings extends React.Component {
         this.setState({keyboardInput2: event.target.value}); // this must remain to be value
         //console.log('Input is KH2:' + this.state.keyboardInput2);
       }
-      handleSubmit(event) {
-        
+handleSubmit(event) {
+
         var idTemp = this.state.idForPush;
         var nameTemp = this.state.keyboardInput1;
         alert(idTemp + '    ' + nameTemp);
-    
-        axios.post('http://localhost:8000/api/updateName', {
-            id: idTemp,
-            name: nameTemp
-          })
+        const cookies = new Cookies();
+        var json;
+        const data = {
+            id: '7',//this.state.idForPush,
+            name: 'Bossman'//this.state.keyboardInput1,
+        }
+
+        axios.post('http://localhost:8000/api/updateName', data, {
+                    headers: {
+                        Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
+                    }       
+    })
+
           .then(response=> {
-            alert('Tried to update name');
+            json = JSON.parse(response.data);
+            console.log(response.data);
+            alert(json);
+            alert(response.data);
+            //console.log('It did something');
+            //alert('Tried to update name');
           })
-          .catch(error=> {
-            alert('There was an error');
-          });
+          .then(json =>{
+              alert('nothing is here');
+          })
+          .catch(function (error) {
+            console.log(error);
+            alert('error:' + error);
+            });
+            alert('This is after the post request');
       }
     
     

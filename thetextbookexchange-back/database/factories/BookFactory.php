@@ -13,6 +13,7 @@ $factory->define(App\Book::class, function (Faker $faker) {
         'condition' => substr($faker->sentence(2), 0, -1),
         'price' => $faker->numberBetween($min = 1, $max = 100),
         'negotiable' => $faker->boolean(),
-        'description' => $faker->sentences($nb = 3, $asText = true)
+        'description' => $faker->sentences($nb = 3, $asText = true),
+        'seller' => $faker->numberBetween($min = 1, $max = 100),
     ];
 });
