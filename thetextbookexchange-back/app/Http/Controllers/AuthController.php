@@ -92,9 +92,38 @@ class AuthController extends Controller
         DB::table('users')
             ->where('id', $request['id'])
             ->update(['name' => $request['name'] ]);
-            return response()->json([
+            /*return response()->json([
                 'done' => 'no',
 
-            ]);
+
+            ]);*/
+    }
+
+    public function updateEmail(Request $request) 
+    {
+        Log::info($request);
+
+        DB::table('users')
+            ->where('id', $request['id'])
+            ->update(['email' => $request['email'] ]);
+            /*return response()->json([
+                'done' => 'no',
+
+
+            ]);*/
+    }
+
+    public function updatePSWRD(Request $request) 
+    {
+        Log::info($request);
+
+        DB::table('users')
+            ->where('id', $request['id'])
+            ->update(['password' => bcrypt($request['password']) ]);
+            /*return response()->json([
+                'done' => 'no',
+
+
+            ]);*/
     }
 }

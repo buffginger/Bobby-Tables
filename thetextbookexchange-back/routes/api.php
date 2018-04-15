@@ -27,6 +27,8 @@ Route::post('/logout', 'AuthController@logout');
 
 /*  routes for updating account information */
 Route::post('/updateName', 'AuthController@updateName');
+Route::post('/updateEmail', 'AuthController@updateEmail');
+Route::post('/updatePSWRD', 'AuthController@updatePSWRD');
 
 /* These routes are protected by authentication. */
 Route::group(['middleware' => ['jwt.auth']], function () {
