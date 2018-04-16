@@ -154,16 +154,14 @@ class Home extends React.Component {
                                             <input type="text" className="form-control" name="form-control"
                                                id="databaseQuery" value={this.state.keyboardInput} placeholder="Search - ISBN, Author, & Title"
                                              onChange={this.handleChange1}/>
-                                            <div class="input-group-append">
-                                                <select value={this.state.selection} onChange={this.handleChange2}>
-                                                    <option value="title">Title</option>
-                                                    <option value="author">Author</option>
-                                                    <option value="isbn">ISBN</option>
-                                                </select>
-                                            </div>
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary" type="submit" value="Submit">Submit</button>
-                                            </div>
+                                            <select id="searchSelect" class="selectpicker btn-primary" value={this.state.selection} onChange={this.handleChange2}>
+                                                <option value="title">Title</option>
+                                                <option value="author">Author</option>
+                                                <option value="isbn">ISBN</option>
+                                            </select>
+                                            <button id="searchSubmit" class="btn btn-primary" type="submit" value="Submit">
+                                                Search <i className="fa fa-long-arrow-right"></i>
+                                            </button>
                                         </div>
                                 </form>
 

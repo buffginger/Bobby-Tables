@@ -160,3 +160,19 @@ body {
 .wlcmButtons {
     font-size: 24px;
 }
+
+#databaseQuery {
+    margin-right: 10px;
+    border-radius: 25px;
+    min-width: 300px;   
+}
+
+#searchSelect {
+    min-width: 100px;
+    max-width: 100px;  
+    margin-right: 10px;
+}
+
+#searchSubmit {
+    margin-right: 10px;
+}
