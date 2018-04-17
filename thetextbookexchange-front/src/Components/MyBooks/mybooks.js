@@ -60,7 +60,7 @@ class Home extends React.Component {
                                     <div>
                                         <div class="card" id={book.id}>
                                             <div class="card-body">
-                                                <h2><b>Title: {book.title}</b></h2>
+                                                <h2><b>{book.title}</b></h2>
                                                 <div class="bookInfo">
                                                     <h6 class="card-title noLnBrk">Author: {book.author}</h6>
                                                     <h6 class="card-title noLnBrk">ISBN: {book.isbn}</h6>
