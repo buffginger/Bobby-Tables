@@ -34,8 +34,7 @@ class Home extends React.Component {
       handleSubmit(event) {
         const cookies = new Cookies();
 
-        alert('A name was submitted: ' + this.state.keyboardInput + '\n' +
-        'A selection type was made: ' + this.state.selection);
+        //alert('A name was submitted: ' + this.state.keyboardInput + '\n' +'A selection type was made: ' + this.state.selection);
         event.preventDefault();
           
             if(this.state.selection === 'title'){

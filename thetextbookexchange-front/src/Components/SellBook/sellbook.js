@@ -62,6 +62,10 @@ class SellBook extends React.Component {
         //handle success
         console.log(response);
     })
+    .then(response=> {
+            alert("You successfully added the book: " + data['title']);
+            this.props.history.push("/home");
+          })
     .catch(function (response) {
         //handle error
         console.log(response);

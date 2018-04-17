@@ -48,8 +48,9 @@ class BooksController extends Controller
     public function store(Request $request)
     {
         Log::info($request);
+        $user = auth()->user();
 
-        DB::table('books')->insert([
+        $book = DB::table('books')->insert([
         'title' => $request['title'], 
         'author' => $request['author'],
         'isbn' => $request['isbn'],
@@ -59,10 +60,21 @@ class BooksController extends Controller
         'price' => $request['price'],
         'negotiable' => $request['negotiable'],
         'description' => $request['description'],
-        'image' => 'https://emojiisland.com/products/open-book-emoji-icon'
+        'image' => 'https://emojiisland.com/products/open-book-emoji-icon',
+        'seller' => $user['id']
     ]);
  
         return response()->json($book, 201);
+    }
+
+    public function mybooks(Request $request) 
+    {
+        $user = auth()->user(); 
+        Log::info($user['id']);
+
+        $results = DB::table('books')->where('seller', $user['id'])->get();
+        return response()->json($results, 201);
+
     }
  
     public function update(Request $request, Book $book)

@@ -18,6 +18,7 @@ import Welcome from './Components/Welcome/welcome'
 //import TableRow from './Components/TableRow/tablerow'
 import SampleBook from './Components/ViewBook/viewbook'
 import Account from './Components/Account/account'
+import MyBooks from './Components/MyBooks/mybooks'
 /* *********************** END COMPONENTS *********************** */
 
 /* *********************** MAIN EXPORT *********************** */
@@ -35,6 +36,7 @@ const AppMain = () => (
                 <Route path="/sell" component={SellBook}/>
                 <Route path="/register" component={Register}/>
                 <Route path="/login" component={Login}/>
+                <Route path="/mybooks" component={MyBooks}/>
                 
                 <Route path="/samplebook" component={SampleBook}/>
                 <Route path="/samplebook:handle" component={SampleBook}/>
