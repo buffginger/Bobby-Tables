@@ -41,8 +41,6 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     Route::put('books/{book}', 'BooksController@update');
     Route::delete('books{book}', 'BooksController@delete');
 
-
-
     Route::get('/searchtitle', 'BooksController@searchTitle');
     Route::get('/searchAuthor', 'BooksController@searchAuthor');
     Route::get('/searchISBN', 'BooksController@searchISBN');
@@ -50,4 +48,5 @@ Route::group(['middleware' => ['jwt.auth']], function () {
     /*  routes for updating account information */
     //Route::post('/updateName', 'AuthController@updateName');
     Route::get('/userInfo', 'AuthController@me');
+    Route::get('/userInfo/{user}', 'AuthController@getUserInfo');
 });

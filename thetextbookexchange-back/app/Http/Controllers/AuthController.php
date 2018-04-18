@@ -126,4 +126,8 @@ class AuthController extends Controller
 
             ]);*/
     }
+
+    public function getUserInfo(User $user) {
+        return $user;
+    }
 }

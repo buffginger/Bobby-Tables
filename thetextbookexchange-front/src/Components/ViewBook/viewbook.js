@@ -3,6 +3,7 @@ import axios from 'axios';
 // Page has Sidebar
 import Sidebar from '../Sidebar/sidebar';
 import queryString from 'query-string';
+import Cookies from 'universal-cookie';
 
 // Homepage component/module.
 class ViewBook extends React.Component {
@@ -10,20 +11,14 @@ class ViewBook extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-                        book: []
-                    };
-    
-      }
-
-    async componentDidMount() {
+                        book: [],
+                        user: []
+                    }
 
         const { handle } = this.props.match.params
-
         try {
-            const response = await axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
-            console.log("res:" + response);
+            const response = axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
         } catch (error) {
-            console.log("err" + error);
             this.props.history.push("/home");
         }
         axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
@@ -33,6 +28,21 @@ class ViewBook extends React.Component {
                 book: book
             })
         })
+      }
+
+    getUserInfo() {
+        const cookies = new Cookies();
+         axios.get('http://localhost:8000/api/userInfo/' + this.state.book.seller, {
+                       headers: {
+                           Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                       }
+                   })
+                   .then(res => res.data)
+                   .then(user =>{
+                        this.setState({
+                            user: user
+                        })
+                   })
     }
 
     render() {
@@ -45,7 +55,7 @@ class ViewBook extends React.Component {
                     <Sidebar/>
                     <div className="maincontent-container-fullwidth">
                         <div className="jumbotron jumbotron-fluid">
-                            <div className="container">
+                            <div className="container" onLoad={this.getUserInfo.bind(this)}>
                                 <h1 className="display-1">{this.state.book.title} | ${this.state.book.price}</h1>
                                 <p className="lead" style={{"padding-left": 15}}>
 
@@ -72,15 +82,15 @@ class ViewBook extends React.Component {
                                                 <li><b>Condition:</b> <i> {this.state.book.condition} </i></li>
                                                 <li><b>Price:</b> <i> ${this.state.book.price} </i></li>
                                                 <li><b>Negotiable:</b> <i> {isNegotiable} </i></li>
+                                                <li>{this.state.book.seller}</li>
                                             </ul>
                                         </div>
 
                                         <h2> Contact Information </h2>
                                         <div>
                                             <ul>
-                                                <li><b>Email:</b> <i> something.strange@unomaha.edu </i></li>
-                                                <li><b>Cell:</b> <i> (Four-Oh-Two) Eight 6 Seven - Five 309</i></li>
-                                                <li><b>Available Hours:</b> <i> 10 A.M. - 6 P.M. (M -> R)</i></li>
+                                                <li><b>Email:</b> <i> {this.state.user.email} </i></li>
+                                                <li><b>Cell:</b> <i> {this.state.user.phone} </i></li>
                                             </ul>
                                         </div>
 
