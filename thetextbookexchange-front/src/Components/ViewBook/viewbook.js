@@ -36,6 +36,9 @@ class ViewBook extends React.Component {
     }
 
     render() {
+        const isNegVal = this.state.book.negotiable;
+        var isNegotiable = "Yes"
+        if (isNegVal == 0) isNegotiable = "No";
         return (
             <div>
                 <div className="container-fluid sidenavWrapper p-0">
@@ -68,7 +71,7 @@ class ViewBook extends React.Component {
                                                 <li><b>Subject:</b> <i> {this.state.book.subject} </i></li>
                                                 <li><b>Condition:</b> <i> {this.state.book.condition} </i></li>
                                                 <li><b>Price:</b> <i> ${this.state.book.price} </i></li>
-                                                <li><b>Negotiable:</b> <i> {this.state.book.negotiable} </i></li>
+                                                <li><b>Negotiable:</b> <i> {isNegotiable} </i></li>
                                             </ul>
                                         </div>
 
