@@ -60,7 +60,7 @@ class BooksController extends Controller
         'price' => $request['price'],
         'negotiable' => $request['negotiable'],
         'description' => $request['description'],
-        'image' => 'https://cdn.shopify.com/s/files/1/1061/1924/products/Open_Book_Emoji_large.png?v=1480481040',
+        'image' => $request['image'],
         'seller' => $user['id']
     ]);
  

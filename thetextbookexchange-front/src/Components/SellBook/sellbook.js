@@ -16,6 +16,7 @@ class SellBook extends React.Component {
               author: '',
               isbn: 0,
               edition: '',
+              image: '',
               subject: '',
               condition: '',
               price: '',
@@ -39,6 +40,11 @@ class SellBook extends React.Component {
     if (form.get("negotiable") != null) {
         isNegotiable = true;
     }
+
+    var imageURL = "https://cdn.shopify.com/s/files/1/1061/1924/products/Open_Book_Emoji_large.png?v=1480481040";
+    if (form.get("image") != null) {
+        imageURL = form.get("image");
+    }
     
     // Set the new states 
     const data = {
@@ -46,6 +52,7 @@ class SellBook extends React.Component {
         author: form.get('author'),
         isbn: form.get("isbn"),
         edition: form.get("edition"),
+        image: imageURL,
         subject: form.get("subject"),
         condition: form.get("condition"),
         price: form.get("price"),
@@ -185,6 +192,16 @@ class SellBook extends React.Component {
                                     <label htmlFor="price">Sell Price</label>
                                     <input type="text" className="form-control" id="price" aria-describedby="Sell Price"
                                            placeholder="$" name="price"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <h5 className="card-header">Image</h5>
+                            <div className="card-body">
+                                <div className="form-group">
+                                    <label htmlFor="image">Image URL</label>
+                                    <input type="text" className="form-control" id="image" aria-describedby="Image URL"
+                                           placeholder="http://www.exampleImageSource.com/image.png" name="image"/>
                                 </div>
                             </div>
                         </div>
