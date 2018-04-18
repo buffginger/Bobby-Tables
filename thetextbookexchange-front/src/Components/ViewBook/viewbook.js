@@ -93,15 +93,11 @@ class ViewBook extends React.Component {
                                                 <li><b>Cell:</b> <i> {this.state.user.phone} </i></li>
                                             </ul>
                                         </div>
-
-
-                                         <p> google maps stuff</p>
-                                    <p> this is the embedded map </p>
                                     <iframe  style={{width:600,
                                     height:450,
                                     frameborder:0,
                                     border:0}}
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCF9x6v1uvKWx_RMbbQSch4O-TIM3Smdgk&q=Omaha,Nebraska" allowfullscreen>
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2999.835381865177!2d-96.01895538506984!3d41.24714361264132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938dad8e7d06ab%3A0xd0fd44a640e0f9e5!2sPeter+Kiewit+Institute!5e0!3m2!1sen!2sus!4v1524087316918" allowfullscreen>
                                     </iframe>
                                         <hr/>
                                         <div>

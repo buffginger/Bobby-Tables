@@ -21,6 +21,8 @@ logout(e){
           });
   }
 
+  // <a className="nav-link" href="/" onClick={this.logout.bind(this)}>{this.props.link} Logout</a> 
+
     render() {
         return (
             <div className="sidenav">
@@ -46,7 +48,7 @@ logout(e){
                         <a className="nav-link" href="/about"><i className="fa fa-question"></i>About</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/" onClick={this.logout.bind(this)}>{this.props.link} Logout</a> 
+                        <a className="nav-link" href="/"><i className="fa fa-sign-out"></i>Logout</a> 
                     </li> 
                 </ul>
             </div>
