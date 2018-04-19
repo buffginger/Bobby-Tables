@@ -120,7 +120,12 @@ class Home extends React.Component {
         }*/
         
     componentDidMount() {
-        axios.get(`https://api.thetextbookexchange.club/api/books`)
+        const cookies = new Cookies();
+        axios.get(`https://api.thetextbookexchange.club/api/books`, {
+            headers: {
+                Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+            },
+        })
         .then(res => {
             const books = res.data;
             this.setState({ books });
