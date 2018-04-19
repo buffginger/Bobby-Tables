@@ -13,7 +13,11 @@ class Welcome extends Component {
 
     logout(e) {
         e.preventDefault();
-        axios.post('https://api.thetextbookexchange.club/api/logout')
+        axios.post('https://api.thetextbookexchange.club/api/logout', {
+            headers: {
+                Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+            }
+        })
             .then(response => {
                 this.props.history.push('/');
             })

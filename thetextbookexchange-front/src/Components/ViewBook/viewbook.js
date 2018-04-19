@@ -17,11 +17,19 @@ class ViewBook extends React.Component {
 
         const { handle } = this.props.match.params
         try {
-            const response = axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
+            const response = axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`, {
+                headers: {
+                    Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+                }
+            })
         } catch (error) {
             this.props.history.push("/home");
         }
-        axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`)
+        axios.get(`https://api.thetextbookexchange.club/api/books/${handle}`, {
+            headers: {
+                Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
+            }
+        })
         .then(res => res.data)
         .then(book => {
             this.setState({
