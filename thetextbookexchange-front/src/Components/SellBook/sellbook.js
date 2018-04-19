@@ -60,7 +60,7 @@ class SellBook extends React.Component {
         description: form.get("description")
     }
 
-    axios.post('http://localhost:8000/api/books', data, {
+    axios.post('https://api.thetextbookexchange.club/api/books', data, {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
                     }       

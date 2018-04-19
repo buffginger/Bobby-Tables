@@ -22,7 +22,7 @@ class Home extends React.Component {
                    //var emailRet;
                    
            
-                   axios.get('http://localhost:8000/api/userInfo', {
+                   axios.get('https://api.thetextbookexchange.club/api/userInfo', {
                        headers: {
                            Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                        }

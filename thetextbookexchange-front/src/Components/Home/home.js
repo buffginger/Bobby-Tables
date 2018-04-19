@@ -40,7 +40,7 @@ class Home extends React.Component {
             if(this.state.selection === 'title'){
                 var self = this;
                 var books;
-                axios.get('http://localhost:8000/api/searchtitle', {
+                axios.get('https://api.thetextbookexchange.club/api/searchtitle', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                     },
@@ -64,7 +64,7 @@ class Home extends React.Component {
             else if(this.state.selection === 'author'){
                 var self = this;
                 var books;
-                axios.get('http://localhost:8000/api/searchAuthor', {
+                axios.get('https://api.thetextbookexchange.club/api/searchAuthor', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                     },
@@ -87,7 +87,7 @@ class Home extends React.Component {
             else if(this.state.selection === 'isbn'){
                 var self = this;
                 var books;
-                axios.get('http://localhost:8000/api/searchISBN', {
+                axios.get('https://api.thetextbookexchange.club/api/searchISBN', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                     },

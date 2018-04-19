@@ -23,7 +23,7 @@ class Settings extends React.Component {
 
 
                     const cookies = new Cookies();
-                    axios.get('http://localhost:8000/api/userInfo', {
+                    axios.get('https://api.thetextbookexchange.club/api/userInfo', {
                         headers: {
                             Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                         }
@@ -85,7 +85,7 @@ handleSubmit(event) {
             name: nameTemp//this.state.keyboardInput1,
         }
 
-        axios.post('http://localhost:8000/api/updateName', data, {
+        axios.post('https://api.thetextbookexchange.club/api/updateName', data, {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
                     }       
@@ -117,7 +117,7 @@ handleSubmit(event) {
                         email: emailTemp//this.state.keyboardInput1,
                     }
             
-                    axios.post('http://localhost:8000/api/updateEmail', data, {
+                    axios.post('https://api.thetextbookexchange.club/api/updateEmail', data, {
                                 headers: {
                                     Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
                                 }       
@@ -195,7 +195,7 @@ handleSubmit(event) {
                         password: passwordTemp//this.state.keyboardInput1,
                     }
             
-                    axios.post('http://localhost:8000/api/updatePSWRD', data, {
+                    axios.post('https://api.thetextbookexchange.club/api/updatePSWRD', data, {
                                 headers: {
                                     Authorization: 'Bearer ' + cookies.get('TBEAuthToken')
                                 }       

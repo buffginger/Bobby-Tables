@@ -32,7 +32,7 @@ class ViewBook extends React.Component {
 
     getUserInfo() {
         const cookies = new Cookies();
-         axios.get('http://localhost:8000/api/userInfo/' + this.state.book.seller, {
+         axios.get('https://api.thetextbookexchange.club/api/userInfo/' + this.state.book.seller, {
                        headers: {
                            Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                        }

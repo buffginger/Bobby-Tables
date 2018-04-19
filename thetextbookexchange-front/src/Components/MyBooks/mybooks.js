@@ -21,7 +21,7 @@ class Home extends React.Component {
     componentDidMount() {
         const cookies = new Cookies();
 
-        axios.get('http://localhost:8000/api/mybooks', {
+        axios.get('https://api.thetextbookexchange.club/api/mybooks', {
                     headers: {
                         Authorization: 'Bearer ' + cookies.get('TBEAuthToken'),
                     }

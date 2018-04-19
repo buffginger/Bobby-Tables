@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
 
 logout(e){
        e.preventDefault();  
-       axios.post('http://localhost:8000/api/logout')
+       axios.post('https://api.thetextbookexchange.club/api/logout')
           .then(response=> {
             this.props.history.push('/');
           })
@@ -49,7 +49,7 @@ logout(e){
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/"><i className="fa fa-sign-out"></i>Logout</a> 
-                    </li> 
+                    </li>
                 </ul>
             </div>
         );
